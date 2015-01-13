@@ -37,7 +37,7 @@ public class FIReporteLibroDiario extends MaestroInternalFrame{
 	}
 	
 	public void initialize() {
-		setSize(321, 108);
+		setSize(321, 138);
 		setTitle(Sesion.titulo+"-"+Sesion.tifReporteLibroDiario);
 		//
 		toolBar.setVisible(true);

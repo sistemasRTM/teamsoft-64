@@ -37,7 +37,7 @@ public class FIReporteLibroKardex extends MaestroInternalFrame{
 	}
 	
 	public void initialize() {
-		setSize(321, 108);
+		setSize(321, 138);
 		setTitle(Sesion.titulo+"-"+Sesion.tifReporteLibroKardex);
 		//
 		toolBar.setVisible(true);
