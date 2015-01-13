@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables>
+  <tabla nombre="Datos">
+    <campo>
+      <ip>192.168.1.7</ip>
+      <impresoraMatricial>\\VENTASMEZ01\EPSON FX-890 Ver 2.0 (Copiar 2)</impresoraMatricial>
+      <impresoraLaserOTinta>dhcppc10 (HP LaserJet P2055dn)</impresoraLaserOTinta>
+    </campo>
+  </tabla>
+</tables>
