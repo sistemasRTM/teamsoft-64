@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FacturaVarios" pageWidth="637" pageHeight="792" columnWidth="612" leftMargin="5" rightMargin="20" topMargin="20" bottomMargin="20" uuid="183f902f-0077-4c27-a05a-998538a147a1">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fvnomc" class="java.lang.String"/>
+	<parameter name="fvdirc" class="java.lang.String"/>
+	<parameter name="DISC_PROC_DPTC" class="java.lang.String"/>
+	<parameter name="clnide" class="java.lang.String"/>
+	<parameter name="CPADES" class="java.lang.String"/>
+	<parameter name="fvclie" class="java.lang.String"/>
+	<parameter name="DIA" class="java.lang.String"/>
+	<parameter name="MES" class="java.lang.String"/>
+	<parameter name="ANIO" class="java.lang.String"/>
+	<parameter name="VALOR_VENTA" class="java.lang.String"/>
+	<parameter name="MONTO_IGV" class="java.lang.String"/>
+	<parameter name="IGV" class="java.lang.String"/>
+	<parameter name="ETIQUETA" class="java.lang.String"/>
+	<parameter name="fvpvta" class="java.lang.String"/>
+	<parameter name="fvnume" class="java.lang.String"/>
+	<parameter name="TOTAL" class="java.lang.String"/>
+	<field name="fdglos" class="java.lang.String"/>
+	<field name="fdpvt" class="java.lang.Double"/>
+	<pageHeader>
+		<band height="190">
+			<textField>
+				<reportElement uuid="8a2ae81f-3cc6-4ad4-94ea-0ee11567166c" x="420" y="70" width="44" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fvpvta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6d2a77c7-6648-4516-8eaa-5683cbbf37c9" x="5" y="155" width="270" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CPADES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1031cb5b-5d0a-42a5-aeef-dc3223634698" x="464" y="70" width="75" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fvnume}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5ddf39f3-97d9-44e4-9258-6ab899fe8da0" x="455" y="155" width="30" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ANIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="84c5786a-69aa-4552-8c5c-612ec5e45e97" x="5" y="106" width="390" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DISC_PROC_DPTC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f13ce1cb-8746-4d77-b863-8d37d6ee634a" x="425" y="155" width="15" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{MES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="86e426c2-e729-496c-82a2-854cdcec3626" x="290" y="155" width="81" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fvclie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e619cb6a-5ca6-4c93-94ec-7d80d64fafb0" x="60" y="95" width="350" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fvdirc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c81d39bc-f8fe-4627-8e5a-53c4cfc66b67" x="35" y="118" width="115" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{clnide}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="379bdc3e-006a-466e-92ac-fcff1e6d8040" x="60" y="72" width="350" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fvnomc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b9f58605-eea3-4e27-a742-9f1fbac5c02a" x="390" y="155" width="15" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DIA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement uuid="d9177d86-d5b9-49e9-990c-8cca52f05af5" x="20" y="0" width="458" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fdglos}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="1c328820-5ae4-40bb-9710-4d0cbd60d93c" x="494" y="0" width="65" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fdpvt}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="207">
+			<textField>
+				<reportElement uuid="1fd7f536-affe-444e-b92a-f3ec241c0576" x="459" y="116" width="100" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement uuid="46909f5f-2b24-4f00-a36f-102695abbfff" x="35" y="116" width="82" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{VALOR_VENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b85e5db8-fb6d-490e-86c2-52adb3ab5022" x="240" y="99" width="60" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{IGV}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement uuid="a58bd45e-f74f-43e0-bf0c-1e591f8496cd" x="225" y="116" width="65" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{MONTO_IGV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5bc9c686-66f7-4a39-b2c6-ee6dca32fec5" x="15" y="14" width="534" height="73"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ETIQUETA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

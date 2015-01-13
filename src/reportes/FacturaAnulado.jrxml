@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FacturaAnulado" pageWidth="637" pageHeight="792" whenNoDataType="AllSectionsNoDetail" columnWidth="597" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e36335e5-d42a-4a71-a2a3-4d9ada341dd4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="356"/>
+	<parameter name="serie" class="java.lang.String"/>
+	<parameter name="numero" class="java.lang.String"/>
+	<pageHeader>
+		<band height="752">
+			<textField>
+				<reportElement uuid="997ada22-36af-4ba6-9d7d-8f52d8ae6128" x="420" y="70" width="44" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{serie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="682347f9-dce5-4fe4-924d-f20461cdaaf9" x="464" y="70" width="75" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{numero}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c7fc019c-b6f1-4139-954f-cb2905cabf81" x="83" y="341" width="435" height="87"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="48"/>
+				</textElement>
+				<text><![CDATA[A N U L A D O]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+</jasperReport>

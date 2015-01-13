@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BoletaMotocicleta" pageWidth="637" pageHeight="396" columnWidth="612" leftMargin="5" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8fb9e37b-dd54-4b85-9dbe-6c72d4773986">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PHNOMC" class="java.lang.String"/>
+	<parameter name="PHDIRC" class="java.lang.String"/>
+	<parameter name="DISC_PROC_DPTC" class="java.lang.String"/>
+	<parameter name="PHRUCC" class="java.lang.String"/>
+	<parameter name="CPADES" class="java.lang.String"/>
+	<parameter name="PHPVTA" class="java.lang.String"/>
+	<parameter name="PDFABO" class="java.lang.String"/>
+	<parameter name="FECHA" class="java.lang.String"/>
+	<parameter name="ETIQUETA" class="java.lang.String"/>
+	<parameter name="TOTAL" class="java.lang.String"/>
+	<field name="PDARTI" class="java.lang.String"/>
+	<field name="ARTEQU" class="java.lang.String"/>
+	<field name="ARTDES" class="java.lang.String"/>
+	<field name="PDUNVT" class="java.lang.String"/>
+	<field name="PDUNIT" class="java.lang.Double"/>
+	<field name="PDREF1C" class="java.lang.Double"/>
+	<field name="PDCANT" class="java.lang.Double"/>
+	<field name="PDPVT" class="java.lang.Double"/>
+	<field name="PU" class="java.lang.String"/>
+	<field name="FLAG" class="java.lang.String"/>
+	<field name="pimvin" class="java.lang.String"/>
+	<field name="pimcha" class="java.lang.String"/>
+	<field name="pimmot" class="java.lang.String"/>
+	<field name="pimcat" class="java.lang.String"/>
+	<field name="pimmar" class="java.lang.String"/>
+	<field name="pimmod" class="java.lang.String"/>
+	<field name="pimtca" class="java.lang.String"/>
+	<field name="pimano" class="java.lang.String"/>
+	<field name="pimcol" class="java.lang.String"/>
+	<field name="pimcil" class="java.lang.String"/>
+	<field name="pimcmo" class="java.lang.String"/>
+	<field name="pimpse" class="java.lang.String"/>
+	<field name="pimaru" class="java.lang.String"/>
+	<field name="pimlaa" class="java.lang.String"/>
+	<field name="pimpol" class="java.lang.String"/>
+	<field name="pimtit" class="java.lang.String"/>
+	<field name="pimd01" class="java.lang.String"/>
+	<field name="pimd02" class="java.lang.String"/>
+	<field name="pimd03" class="java.lang.String"/>
+	<field name="pimd04" class="java.lang.String"/>
+	<field name="pimd05" class="java.lang.String"/>
+	<field name="pimd06" class="java.lang.String"/>
+	<field name="pimd08" class="java.lang.String"/>
+	<field name="pimd09" class="java.lang.String"/>
+	<field name="pimd10" class="java.lang.String"/>
+	<field name="pimd11" class="java.lang.String"/>
+	<field name="pimd15" class="java.lang.String"/>
+	<pageHeader>
+		<band height="150">
+			<textField>
+				<reportElement uuid="cc9409f9-5156-45dc-a354-9cfa03321862" x="55" y="95" width="344" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PHDIRC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="71fb79e5-de61-4473-9983-9db5ddc82374" x="464" y="52" width="75" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PDFABO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f428806d-3196-486d-904e-f4926c4734a6" x="5" y="106" width="415" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DISC_PROC_DPTC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b78fb824-67ed-4bcb-93ae-c72eda24dea0" x="420" y="52" width="44" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PHPVTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2b438c00-25c3-4dd5-b388-362cc0f461b0" x="205" y="81" width="50" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d3691492-2595-49bd-b5df-d97f08a1cafe" x="50" y="47" width="270" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PHNOMC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="991ad94a-3d82-4274-83e8-277445233608" x="5" y="117" width="314" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CPADES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e7708647-d1b5-44b6-9515-0eb5d1b610d5" x="50" y="81" width="100" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PHRUCC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="88" splitType="Stretch">
+			<textField pattern="#,##0.0">
+				<reportElement uuid="9972e88c-87be-406e-bd84-0dbcdfed9418" x="420" y="0" width="35" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDCANT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="e52af2d7-cd11-47b7-a6ad-4710e61e2794" x="499" y="0" width="65" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDPVT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e62b7fcc-57f1-4e47-a577-76c9a8e93095" x="567" y="0" width="10" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FLAG}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement uuid="aed384dc-74a7-48fc-8264-c9fb0ca15db7" x="5" y="0" width="40" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDARTI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9b54409c-4933-4b86-9e95-4dc298af1ce9" x="450" y="0" width="52" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5cf3511f-f138-4334-a074-809fa0b4435c" x="140" y="0" width="180" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ARTDES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8dec2466-d54c-458c-a472-0fc56a7ec981" x="45" y="0" width="95" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ARTEQU}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="484d1c9c-fb74-447e-a8d8-4667a4d49733" x="306" y="0" width="50" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDUNIT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f9d254e1-0b5b-4dc0-a315-243536a2b5e7" x="294" y="0" width="25" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDUNVT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="09716032-881f-48bd-b658-fa3a1709e4b7" x="375" y="0" width="40" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDREF1C}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="a39b9dd0-4546-41e1-b93c-38eed7e72d3b" x="45" y="11" width="59" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*NUMERO VIN:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="26027556-5947-4361-930f-706e1b79c3d7" x="210" y="11" width="88" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*NUMERO DE CHASIS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="361fba33-f71d-4457-974d-ea5694d11a17" x="105" y="11" width="100" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimvin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2e6be847-dbb9-4a2d-a709-df009f1e30de" x="299" y="11" width="100" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimcha}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="7bfb8144-4ccd-43aa-877c-e906fb8fb658" x="401" y="11" width="38" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*MOTOR:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="8a8e12d4-2860-4b80-a1d9-1983821cdf69" x="442" y="11" width="90" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimmot}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1339de9c-a038-49b4-9fb7-a8006013d1bf" x="45" y="22" width="25" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*DUA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="70b3377d-4526-4919-a8dd-ca6c2dc73800" x="70" y="22" width="150" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimcat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="88393826-1bcb-4807-97a9-670127f983c6" x="220" y="22" width="53" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*CATEGORIA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="5b310414-ba85-49b7-b4ac-31d1e518c5f8" x="273" y="22" width="35" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimmar}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="86e60367-aad4-41f6-953a-3483b54acb5e" x="319" y="22" width="35" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*MARCA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="28dce4f0-4c32-40fe-b13f-51ee6de963e8" x="356" y="22" width="176" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimmod}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="bb5a75f1-1933-4728-a188-0c99cf45fa20" x="45" y="33" width="41" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*MODELO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="af90c97e-85dd-4ddb-bc80-930abd385c95" x="86" y="33" width="80" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimtca}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="cc1240b0-a69d-4fcc-b940-715bd4eb5a37" x="169" y="33" width="60" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*CARROCERIA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="2f67ac46-261c-4e76-92c8-e82f8309dc2b" x="230" y="33" width="70" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimcol}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="78516eed-1fae-4054-8c59-e78e8be7efd7" x="304" y="33" width="34" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*COLOR:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="34bc78be-3fdc-4149-89f2-5c00d59f4da4" x="342" y="33" width="70" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimcil}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e77cbd74-1f5d-4fe4-a70f-f97c70464f4c" x="414" y="33" width="63" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*COMBUSTIBLE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="4325de5e-db31-47b9-ad33-8a11745a3d07" x="477" y="33" width="100" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimcmo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="930020c0-1c0c-4c13-9a35-d1cf3cf9769b" x="45" y="44" width="50" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*CILINDROS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="91daa9ef-88e5-4b34-ad6d-29d0960cc95f" x="95" y="44" width="40" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimpse}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="201425c3-f549-49f1-9903-04af66447c28" x="140" y="44" width="55" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*CILINDRADA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f0d693b8-b39c-4afc-a488-389b7ad20077" x="196" y="44" width="50" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimaru}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="99747c1d-bd55-489b-8843-8a446cb6e915" x="247" y="44" width="46" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*ASIENTOS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="7a4f1282-4390-4276-a230-6c46c4b5e555" x="293" y="44" width="45" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimlaa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b9b7e1ce-61d9-4e16-8cf3-4c10db9a22a2" x="338" y="44" width="27" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*EJES:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="ef185e0b-79c6-4f09-aae2-a43b20130c7c" x="366" y="44" width="35" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimpol}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="18653754-7c93-4722-9630-f90267028626" x="404" y="44" width="87" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*FORMULA RODANTE:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f11adf19-8424-44e7-9abc-3a9e25a92ba3" x="491" y="44" width="86" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimtit}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="106d66e7-e9c4-4265-a2d2-388858209068" x="45" y="55" width="62" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*TRANSMISION:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="29b11a51-7cea-4aa2-91dc-7d8b25009cd2" x="110" y="55" width="85" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimd01}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f0aeb5c4-9e7c-4c26-82fc-edb4a9d40fb2" x="202" y="55" width="54" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*PASAJEROS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="6893e260-b2d5-472b-9bbf-787ac6584e63" x="258" y="55" width="40" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimd02}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6ba2d6d7-dc49-4a63-9b28-59b02e084b57" x="319" y="55" width="93" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*POTENCIA DE MOTOR:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3898c1d8-3bac-4524-bc91-19fe0a975c5b" x="412" y="55" width="152" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimd03}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="fc77e907-4ec8-4cd9-ace6-0919a0b6f635" x="45" y="66" width="58" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*PESO BRUTO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="25264011-6da2-44fb-9ef7-20b78f970224" x="105" y="66" width="55" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimd04}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="77fc874f-821d-4a2b-922a-56905d02a6cf" x="176" y="66" width="53" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*PESO NETO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c03d4c4d-a20f-45cc-bdd3-4b917a898064" x="230" y="66" width="55" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimd05}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="894f0e89-b5c0-4a30-9d03-6780c2de435a" x="294" y="66" width="55" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*CARGA UTIL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="5d8b41c3-6d72-4461-9f20-8d5ca0c306f9" x="354" y="66" width="55" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimd06}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d9377196-8e59-4af7-8f33-d281f5bb3962" x="420" y="66" width="35" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*LARGO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="543c2151-c650-4d26-b48e-71f28138494d" x="455" y="66" width="55" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimd08}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e639d0e1-de46-41fc-9b80-22fe9fc8057e" x="45" y="77" width="37" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*ANCHO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="27eb2f7c-0ba0-4b8a-a9ae-41f6896272dc" x="82" y="77" width="55" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimd09}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6e9cc528-39b8-446c-bd76-ec9920c41110" x="140" y="77" width="27" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*ALTO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="a0b40092-0065-41b5-ae52-a8c3d42180a2" x="168" y="77" width="55" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimd10}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="499b986a-3864-411a-9bdf-b24e9f6a2c18" x="226" y="77" width="42" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*RUEDAS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="89f90e66-6d9c-4038-99b4-daff784a936a" x="268" y="77" width="55" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimd11}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="b601d4d0-aeb1-4010-b6e3-8334ecb520af" x="338" y="77" width="95" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[*AÑO DE FABRICACION:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="5262b6b0-dceb-49e8-a529-1d17f284c9a1" x="435" y="77" width="55" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pimd15}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="107">
+			<textField>
+				<reportElement uuid="609a5984-516b-4208-ac0b-eceb852209c5" x="442" y="90" width="122" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c8482aaf-dbd0-40ec-ae60-19be7add4061" x="15" y="2" width="535" height="70"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ETIQUETA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

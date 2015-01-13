@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Letras" pageWidth="680" pageHeight="311" whenNoDataType="AllSectionsNoDetail" columnWidth="652" leftMargin="14" rightMargin="14" topMargin="14" bottomMargin="14" uuid="79ded627-aee9-4ada-991f-d9fb8b868a42">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CCNDOC" class="java.lang.String"/>
+	<parameter name="CCFECH" class="java.lang.String"/>
+	<parameter name="CCFEVE" class="java.lang.String"/>
+	<parameter name="CCSALD" class="java.lang.String"/>
+	<parameter name="CLINOM" class="java.lang.String"/>
+	<parameter name="CLNIDE" class="java.lang.String"/>
+	<parameter name="CLITE1" class="java.lang.String"/>
+	<parameter name="CLIDIR" class="java.lang.String"/>
+	<parameter name="CLIDIS_PRO_DPT" class="java.lang.String"/>
+	<parameter name="SL" class="java.lang.String"/>
+	<parameter name="CLNANO" class="java.lang.String"/>
+	<parameter name="CLNADI" class="java.lang.String"/>
+	<parameter name="CLNATE" class="java.lang.String"/>
+	<parameter name="CLNARU" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<pageHeader>
+		<band height="271" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ff3769ca-fc7f-4bc5-96c9-f66d8af63b36" x="67" y="50" width="80" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CCNDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a02624e3-1999-4d50-b5a2-ec2f36441206" x="207" y="50" width="80" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CCFECH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d8ed6645-07db-46de-b90e-a51981d84cda" x="355" y="51" width="80" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CCFEVE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f8ca528b-b31d-44cb-9e4b-7dfc5f92db02" x="440" y="50" width="100" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CCSALD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dfb2c357-6bdb-4f5b-9b77-a073c2f887ea" x="111" y="93" width="429" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{SL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3905a8d3-0568-48f7-a60b-87f669a37f1b" x="105" y="127" width="264" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CLINOM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="611912c3-2344-4d6c-8893-63560841e264" x="98" y="153" width="271" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CLIDIR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="08e4d14f-13b8-44e0-a297-75980f4b2552" x="69" y="167" width="317" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CLIDIS_PRO_DPT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b43ea7f2-1cb8-4218-a6b0-ef187f1868fd" x="91" y="178" width="100" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CLNIDE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f9576755-eaec-4b86-8af5-e7c3721143bb" x="191" y="178" width="100" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CLITE1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6467b392-9a42-4c5a-8a6d-ff1bcb54a0e0" x="283" y="50" width="59" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MIRAFLORES]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3ce88734-c128-4ded-bb46-513abcc5d591" x="69" y="204" width="393" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CLNANO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a653c172-24d1-494b-8a9c-ea84ef91392f" x="69" y="223" width="393" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CLNADI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="213b1fa2-131a-41f6-8b8f-35f46ef62543" x="85" y="245" width="100" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CLNARU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4d8b67b4-29a5-4b29-8246-472f1e521f1a" x="198" y="235" width="100" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CLNATE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+</jasperReport>

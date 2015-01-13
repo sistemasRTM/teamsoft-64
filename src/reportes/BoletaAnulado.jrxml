@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BoletaAnulado" pageWidth="637" pageHeight="396" whenNoDataType="AllSectionsNoDetail" columnWidth="612" leftMargin="5" rightMargin="20" topMargin="20" bottomMargin="20" uuid="332c1c2a-13ba-41e1-8642-3681e336ea3d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="serie" class="java.lang.String"/>
+	<parameter name="numero" class="java.lang.String"/>
+	<pageHeader>
+		<band height="356">
+			<textField>
+				<reportElement uuid="88a4ef42-0abe-4968-9bdf-41a5223425f9" x="420" y="65" width="44" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{serie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cc97709c-de7c-4161-85dd-598af16d6bbc" x="464" y="65" width="75" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{numero}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="4dd5a8a3-3132-4f4b-8c7a-eb7c41a88a6b" x="93" y="205" width="435" height="87"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="48"/>
+				</textElement>
+				<text><![CDATA[A N U L A D O]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+</jasperReport>

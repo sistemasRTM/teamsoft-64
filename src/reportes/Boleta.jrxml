@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Boleta" pageWidth="637" pageHeight="396" columnWidth="612" leftMargin="5" rightMargin="20" topMargin="20" bottomMargin="20" uuid="893c8520-9b60-4a13-aa23-cdd57aad54eb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PHNOMC" class="java.lang.String"/>
+	<parameter name="PHDIRC" class="java.lang.String"/>
+	<parameter name="DISC_PROC_DPTC" class="java.lang.String"/>
+	<parameter name="PHRUCC" class="java.lang.String"/>
+	<parameter name="CPADES" class="java.lang.String"/>
+	<parameter name="PHPVTA" class="java.lang.String"/>
+	<parameter name="PDFABO" class="java.lang.String"/>
+	<parameter name="FECHA" class="java.lang.String"/>
+	<parameter name="ETIQUETA" class="java.lang.String"/>
+	<parameter name="TOTAL" class="java.lang.String"/>
+	<parameter name="ETIQUETA2" class="java.lang.String"/>
+	<field name="PDARTI" class="java.lang.String"/>
+	<field name="ARTEQU" class="java.lang.String"/>
+	<field name="ARTDES" class="java.lang.String"/>
+	<field name="PDUNVT" class="java.lang.String"/>
+	<field name="PDUNIT" class="java.lang.Double"/>
+	<field name="PDREF1C" class="java.lang.Double"/>
+	<field name="PDCANT" class="java.lang.Double"/>
+	<field name="PDPVT" class="java.lang.Double"/>
+	<field name="PU" class="java.lang.String"/>
+	<field name="FLAG" class="java.lang.String"/>
+	<pageHeader>
+		<band height="150">
+			<textField>
+				<reportElement uuid="12a9f4d8-d7e7-40ba-aba6-4ac997405dc1" x="420" y="52" width="44" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PHPVTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="db6d3172-9f9f-4bda-b440-025ff10e991e" x="464" y="52" width="75" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PDFABO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="72ddc43c-e3d9-4fc9-9c6d-e065761470c5" x="50" y="47" width="270" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PHNOMC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e0e03fa1-0229-400d-a642-78668dd53d7d" x="55" y="95" width="344" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PHDIRC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4c97e13a-3a96-4c49-879e-08fd63467054" x="5" y="106" width="415" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DISC_PROC_DPTC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f725c9cf-b05c-4fa8-b82a-9e26dcb9c4ba" x="5" y="117" width="314" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CPADES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4e9c00c4-b18e-48e2-a4b5-815aab588a03" x="50" y="81" width="100" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PHRUCC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="71357b4a-6ffe-4095-8941-0b61cf55d7fe" x="205" y="81" width="50" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{FECHA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement uuid="76dad617-b447-4460-9b17-0ca192a891ba" x="45" y="0" width="95" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ARTEQU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2de37146-85eb-4265-bb33-137739060dc1" x="567" y="0" width="10" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FLAG}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement uuid="13c05d0a-f23a-47bf-8232-923aa7ead761" x="5" y="0" width="40" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDARTI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="44cadc8d-3237-4147-82b6-4c59792da415" x="294" y="0" width="25" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDUNVT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c8dafec8-6fe5-4679-b5de-764dda227934" x="450" y="0" width="52" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="89f2b089-817b-4bbc-92e7-bf5f9e7d3dce" x="140" y="0" width="180" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ARTDES}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="0c8d493b-6bae-4c97-9542-2f67e58efae3" x="375" y="0" width="40" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDREF1C}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.0">
+				<reportElement uuid="f4a8d82a-33ce-4a9e-9efb-811f17e8f556" x="420" y="0" width="35" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDCANT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="78d87408-eb8f-401b-a13a-c0d8e8d58ca5" x="306" y="0" width="50" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDUNIT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="46c5d1e3-5cc9-4097-9091-d202f186a7a6" x="499" y="0" width="65" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PDPVT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="73">
+			<textField>
+				<reportElement uuid="704a108a-f2df-480d-b7da-1282251f9d47" stretchType="RelativeToBandHeight" x="15" y="0" width="535" height="62"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ETIQUETA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="264a1238-2155-4409-a742-91115d9cc934" x="442" y="62" width="122" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="436510d0-31c3-4701-9f65-736fb81eeacf" x="15" y="62" width="400" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ETIQUETA2}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
