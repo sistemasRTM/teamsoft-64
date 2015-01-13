@@ -7,6 +7,7 @@ import controlador.ContabilidadController;
 import recursos.MaestroInternalFrame;
 import recursos.Sesion;
 import recursos.TextFilterDocument;
+import javax.swing.JCheckBox;
 
 public class FIReporteLibroMayor extends MaestroInternalFrame{
 
@@ -18,6 +19,7 @@ public class FIReporteLibroMayor extends MaestroInternalFrame{
 	private JLabel lblEjercicio;
 	private TextFilterDocument tfdEjercicio = new TextFilterDocument(
 			TextFilterDocument.DIGITS, 4);
+	private JCheckBox chckbxCabecera;
 
 	public static FIReporteLibroMayor createInstance() {
 		if (gui == null) {
@@ -54,6 +56,10 @@ public class FIReporteLibroMayor extends MaestroInternalFrame{
 		btnProcesar.setEnabled(false);
 		btnProcesar.setBounds(165, 11, 104, 23);
 		contenedorCenter.add(btnProcesar);
+		
+		chckbxCabecera = new JCheckBox("Cabecera");
+		chckbxCabecera.setBounds(20, 37, 97, 23);
+		contenedorCenter.add(chckbxCabecera);
 		
 		txtEjercicio.requestFocus();
 	}
@@ -95,5 +101,7 @@ public class FIReporteLibroMayor extends MaestroInternalFrame{
 		dispose();
 	}
 
-	
+	public boolean isHeader(){
+		return chckbxCabecera.isSelected();
+	}
 }
