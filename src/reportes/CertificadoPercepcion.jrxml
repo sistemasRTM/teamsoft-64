@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CertificadoPercepcion" pageWidth="632" pageHeight="394" columnWidth="100" leftMargin="10" rightMargin="10" topMargin="10" bottomMargin="10" uuid="1fad7cb5-85c4-4217-a682-176088c63393">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nomCli" class="java.lang.String"/>
+	<parameter name="tipoDoc" class="java.lang.String"/>
+	<parameter name="numDoc" class="java.lang.String"/>
+	<parameter name="fecha" class="java.lang.String"/>
+	<parameter name="mtl" class="java.lang.String"/>
+	<parameter name="tpv" class="java.lang.String"/>
+	<parameter name="tip" class="java.lang.String"/>
+	<parameter name="tmtc" class="java.lang.String"/>
+	<parameter name="correlativo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="pdtdoc" class="java.lang.String"/>
+	<field name="pdpvta" class="java.lang.Integer"/>
+	<field name="pdfabo" class="java.lang.Integer"/>
+	<field name="pdfecf" class="java.util.Date"/>
+	<field name="phnpvt" class="java.lang.Double"/>
+	<field name="pperc" class="java.lang.Double"/>
+	<field name="vperc" class="java.lang.Double"/>
+	<field name="vtfperc" class="java.lang.Double"/>
+	<variable name="tpv" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{phnpvt}]]></variableExpression>
+	</variable>
+	<variable name="tip" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vperc}]]></variableExpression>
+	</variable>
+	<variable name="tmtc" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{vtfperc}]]></variableExpression>
+	</variable>
+	<pageHeader>
+		<band height="170">
+			<textField>
+				<reportElement uuid="801c120c-393e-40de-aa0a-87f4eb0fc313" x="79" y="84" width="512" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomCli}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f4ed3131-ce0f-427a-a1db-f500772ca092" x="122" y="97" width="56" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tipoDoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="69550a2f-a567-4701-9f15-8358b79ead90" x="145" y="97" width="446" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{numDoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="652a4005-d067-44c7-9ebe-b0256a4b98e1" x="79" y="110" width="314" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement uuid="b3e4f7da-35c3-4aea-bbd7-13af3e1b60c6" x="20" y="0" width="42" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pdtdoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="126f5763-96c6-4506-ab68-06aa1af3d316" x="79" y="0" width="66" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pdpvta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3daa7e14-2309-4e5b-ac0e-b02500f7cc23" x="147" y="0" width="141" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pdfabo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="68e13f16-263b-4307-a862-c28b4f638f8a" x="226" y="0" width="111" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pdfecf}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="206e176e-ec4c-4c6e-b306-ba01b8bca78e" x="198" y="0" width="166" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{phnpvt}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="7f0649a6-09f0-4aa0-b6ef-b674069e831f" x="396" y="0" width="55" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pperc}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="ed95193b-6bbf-43b6-bd6e-d997bbf9a4b3" x="353" y="0" width="146" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vperc}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="d6bf815f-98f7-44b5-8006-843cbc4dc178" x="423" y="0" width="147" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vtfperc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="57">
+			<textField>
+				<reportElement uuid="e9ad7fc3-b77f-422b-9046-634f42bcead8" x="33" y="37" width="578" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{mtl}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="c10eabd7-50e6-45a5-bb8a-56d629d21b22" x="198" y="5" width="166" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{tpv}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="d9856f53-00b8-47a6-8a81-51dddf5aeee3" x="353" y="5" width="146" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{tip}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="312ccdbd-924c-498d-9adf-581995f1fdbb" x="349" y="5" width="219" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{tmtc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c2186405-2fcb-41ee-81f0-16460898fb14" x="20" y="5" width="125" height="15"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{correlativo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

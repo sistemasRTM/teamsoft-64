@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="NotaCredito" pageWidth="637" pageHeight="396" columnWidth="612" leftMargin="5" rightMargin="20" topMargin="20" bottomMargin="20" uuid="686ee940-3028-4b1a-a8bd-c395edc789e8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DIA" class="java.lang.String"/>
+	<parameter name="MES" class="java.lang.String"/>
+	<parameter name="ANIO" class="java.lang.String"/>
+	<parameter name="NHPVTA" class="java.lang.String"/>
+	<parameter name="NHNUME" class="java.lang.String"/>
+	<parameter name="NHNOMC" class="java.lang.String"/>
+	<parameter name="NHDIRC" class="java.lang.String"/>
+	<parameter name="DISC_PROC_DPTC" class="java.lang.String"/>
+	<parameter name="CLNIDE" class="java.lang.String"/>
+	<parameter name="NHPVTN" class="java.lang.String"/>
+	<parameter name="NHFABO" class="java.lang.String"/>
+	<parameter name="ETIQUETA" class="java.lang.String"/>
+	<parameter name="VALOR_VENTA" class="java.lang.String"/>
+	<parameter name="MONTO_IGV" class="java.lang.String"/>
+	<parameter name="TOTAL" class="java.lang.String"/>
+	<parameter name="NHTDOC" class="java.lang.String"/>
+	<parameter name="CONCEPTO" class="java.lang.String"/>
+	<field name="NCARTI" class="java.lang.String"/>
+	<field name="NCCANT" class="java.lang.Double"/>
+	<field name="ARTEQU_ARTDES" class="java.lang.String"/>
+	<field name="ARTMED" class="java.lang.String"/>
+	<field name="PU" class="java.lang.String"/>
+	<field name="NCPVT" class="java.lang.Double"/>
+	<field name="FLAG" class="java.lang.String"/>
+	<pageHeader>
+		<band height="197">
+			<textField>
+				<reportElement uuid="50b9de20-b78a-47bd-b195-f6effc0b0953" x="410" y="113" width="100" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CLNIDE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="22d0ebf0-99b1-4e0a-ab05-d49664517f7b" x="40" y="120" width="360" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DISC_PROC_DPTC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="105c3408-9ac6-4f47-bb3d-56063d7690b2" x="60" y="61" width="20" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="74b029b9-2157-4d20-9702-588256253f58" x="80" y="109" width="306" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NHDIRC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2522d3a7-653d-41f8-a438-24a2ef4d7a30" x="210" y="61" width="30" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ANIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a9116009-e2d6-43f4-880a-237fd30823d2" x="100" y="61" width="80" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{MES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="03d1ab96-09f8-4d16-b981-16b549d4daf9" x="432" y="142" width="20" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NHPVTN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="660c7e0f-c211-439e-83e8-df9e950cd435" x="444" y="60" width="75" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NHNUME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4be6b58d-caf0-4387-9ced-dac45b48a3a6" x="80" y="74" width="306" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NHNOMC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ced8bc63-1b7d-464b-8711-03a49fb8069a" x="452" y="142" width="40" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NHFABO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f7623c21-7b52-4517-954a-40dbd7eb15db" x="412" y="142" width="20" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NHTDOC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3f4e0464-a235-47f5-b944-c0bafed13dd7" x="400" y="60" width="44" height="20"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NHPVTA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="72b48ed9-c9e8-48eb-90af-87214725c221" x="376" y="142" width="35" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Doc.Dev:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6e4f16f7-cf21-4194-b437-4b88378da35d" x="412" y="131" width="20" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[NC]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="fc43c458-872f-4913-a46c-91a79ec8e1a6" x="432" y="131" width="20" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NHPVTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="666ad548-c49b-464e-865d-e1fb05048ada" x="452" y="131" width="40" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NHNUME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6ef65afa-a09e-436e-ab57-e4a4c1af4e73" x="80" y="154" width="310" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CONCEPTO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<textField>
+				<reportElement uuid="4aed2cd6-b941-43ba-b049-9ee22a9b22b1" x="35" y="0" width="40" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NCARTI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a4c1df6f-48df-4145-bad1-fb81566a8a34" x="80" y="0" width="30" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NCCANT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2c48fa1c-b4e3-4469-8dd8-b8b4ce59bb40" x="114" y="0" width="272" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ARTEQU_ARTDES}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="d8647e00-102b-4de5-b685-6c9e633df9b0" x="481" y="0" width="59" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NCPVT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d808a7f1-2575-47cb-881e-db20026c0ace" x="542" y="0" width="15" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FLAG}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9168fac7-4b76-4210-8a46-b7821a518db6" x="420" y="0" width="56" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PU}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2def0ae9-8c45-4ed8-881c-555e4ffbd6c3" x="390" y="0" width="30" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ARTMED}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="80">
+			<textField>
+				<reportElement uuid="034baef0-47a6-4677-a735-6e8e074ba308" x="140" y="55" width="97" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{VALOR_VENTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="91157a6e-609d-482b-9864-829a0c250e77" x="315" y="55" width="86" height="11"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{MONTO_IGV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e6071643-27d3-4af4-af21-f38f99474e34" x="40" y="0" width="535" height="55"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ETIQUETA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3ed0568c-b889-474d-9fb8-0c72db1d9443" x="425" y="55" width="100" height="11"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TOTAL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
