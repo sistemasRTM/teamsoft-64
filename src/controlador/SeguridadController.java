@@ -380,6 +380,12 @@ public class SeguridadController implements ActionListener {
 					case 41:
 						gui.getSubOpcReporteLibroKardex().setVisible(true);
 						break;
+					case 48:
+						gui.getSubOpcReporteLibroDiario().setVisible(true);
+						break;
+					case 49:
+						gui.getSubOpcReporteLibroMayor().setVisible(true);
+						break;
 					}
 				}
 

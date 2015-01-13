@@ -783,4 +783,12 @@ public class FMenuPrincipalContabilidad extends MaestroFrame {
 		return mntmLibroKardex;
 	}
 	
+	public JMenuItem getSubOpcReporteLibroDiario() {
+		return mntmLibroDiario;
+	}
+	
+	public JMenuItem getSubOpcReporteLibroMayor() {
+		return mntmLibroMayor;
+	}
+	
 }
