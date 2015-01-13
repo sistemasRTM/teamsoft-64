@@ -1932,8 +1932,10 @@ public class ContabilidadController implements ActionListener, KeyListener {
 		PrintWriter pw;
 		try {
 			pw = new PrintWriter(file);
+			if(mReporteLibroMayor.isHeader()){
 			String libro="MPERIODO|MNUMSIOPE|MNUMCTACON|MFECOPE|MGLOSA|MDEBE|MHABER|MESTOPE|MCENCOS|MINTKARDEX|MINTVTACOM|MINTREG|";
 			pw.println(libro);
+			}
 			PreparedStatement pstm = Conexion.obtenerConexion().prepareStatement(""
 					+ "select  asaeje||asaper||'00'||'|'||asacve||asaseq||'|'||trim(asacta)||'|'||  "
 					+ "substr(asafem,7,2)||'/'||substr(asafem,5,2)||'/'||substr(asafem,1,4)||'|'||trim(asadde)||'|'||  "
@@ -1978,8 +1980,10 @@ public class ContabilidadController implements ActionListener, KeyListener {
 		PrintWriter pw;
 		try {
 			pw = new PrintWriter(file);
+			if(mReporteLibroDiario.isHeader()){
 			String libro="DPERIODO|DNUMSIOPE|DCODCUE|DNUMCTACON|DFECOPE|DGLOSA|DDEBE|DHABER|DESTOPE|DCENCOS|DINTKARDEX|DINTVTACOM|DINTREG|";
 			pw.println(libro);
+			}
 			PreparedStatement pstm = Conexion.obtenerConexion().prepareStatement(""
 					+ "select  asaeje||asaper||'00'||'|'||asacve||asaseq||'|'||'01'||'|'||trim(asacta)||'|'||  "
 					+ "substr(asafem,7,2)||'/'||substr(asafem,5,2)||'/'||substr(asafem,1,4)||'|'||trim(asadde)||'|'||  "
@@ -2931,7 +2935,9 @@ public class ContabilidadController implements ActionListener, KeyListener {
 		if (msjError.equals("")) {
 			try {
 				pw = new PrintWriter(file);
+				if(mReporteLibroKardex.isHeader()){
 				cabecera();
+				}
 				saldosIniciales(Integer.parseInt(ejercicio));
 				detalleMovimientos(Integer.parseInt(ejercicio));
 				saldosFinales(Integer.parseInt(ejercicio));

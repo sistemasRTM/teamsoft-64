@@ -7,6 +7,7 @@ import controlador.ContabilidadController;
 import recursos.MaestroInternalFrame;
 import recursos.Sesion;
 import recursos.TextFilterDocument;
+import javax.swing.JCheckBox;
 
 public class FIReporteLibroKardex extends MaestroInternalFrame{
 
@@ -18,6 +19,7 @@ public class FIReporteLibroKardex extends MaestroInternalFrame{
 	private JLabel lblEjercicio;
 	private TextFilterDocument tfdEjercicio = new TextFilterDocument(
 			TextFilterDocument.DIGITS, 4);
+	private JCheckBox chckbxCabecera;
 
 	public static FIReporteLibroKardex createInstance() {
 		if (gui == null) {
@@ -54,6 +56,10 @@ public class FIReporteLibroKardex extends MaestroInternalFrame{
 		btnProcesar.setEnabled(false);
 		btnProcesar.setBounds(165, 11, 104, 23);
 		contenedorCenter.add(btnProcesar);
+		
+		chckbxCabecera = new JCheckBox("Cabecera");
+		chckbxCabecera.setBounds(20, 34, 97, 23);
+		contenedorCenter.add(chckbxCabecera);
 		
 		txtEjercicio.requestFocus();
 	}
@@ -94,6 +100,8 @@ public class FIReporteLibroKardex extends MaestroInternalFrame{
 	public void salir(){
 		dispose();
 	}
-
 	
+	public boolean isHeader(){
+		return chckbxCabecera.isSelected();
+	}
 }
