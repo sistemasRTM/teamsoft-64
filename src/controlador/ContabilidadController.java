@@ -1926,7 +1926,7 @@ public class ContabilidadController implements ActionListener, KeyListener {
 
 	private void procesarLibroMayor() {
 		String ejer = mReporteLibroMayor.getEjercicio();
-		if(ejer.isEmpty()){
+		if(!ejer.isEmpty()){
 		int ejercicio = Integer.parseInt(ejer);			
 		File file = new File("D:/contabilidad/LibroMayor.txt");
 		PrintWriter pw;
@@ -1972,7 +1972,7 @@ public class ContabilidadController implements ActionListener, KeyListener {
 
 	private void procesarLibroDiario() {
 		String ejer = mReporteLibroDiario.getEjercicio();
-		if(ejer.isEmpty()){
+		if(!ejer.isEmpty()){
 		int ejercicio = Integer.parseInt(ejer);	
 		File file = new File("D:/contabilidad/LibroDiario.txt");
 		PrintWriter pw;
