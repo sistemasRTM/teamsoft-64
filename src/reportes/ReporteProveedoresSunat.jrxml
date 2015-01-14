@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteProveedoresSunat" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b30634d8-deb7-4ffd-9053-163f316937cc">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteProveedoresSunat" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" isIgnorePagination="true" uuid="b30634d8-deb7-4ffd-9053-163f316937cc">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -16,38 +16,38 @@
 	<background>
 		<band splitType="Stretch"/>
 	</background>
-	<columnHeader>
-		<band height="13" splitType="Stretch">
+	<title>
+		<band height="13">
 			<staticText>
-				<reportElement uuid="07b88192-c862-40ee-b883-b2a0f4a0990a" x="0" y="0" width="62" height="12"/>
+				<reportElement uuid="07b88192-c862-40ee-b883-b2a0f4a0990a" x="0" y="1" width="62" height="12"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[PROCVE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="267105a2-33ff-4a09-99e4-2e5c587ae5df" x="62" y="0" width="219" height="12"/>
+				<reportElement uuid="267105a2-33ff-4a09-99e4-2e5c587ae5df" x="62" y="1" width="219" height="12"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[PRONOM]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="f6a5ab8b-e647-4857-861c-c0c0c7d884e9" x="281" y="0" width="202" height="12"/>
+				<reportElement uuid="f6a5ab8b-e647-4857-861c-c0c0c7d884e9" x="281" y="1" width="202" height="12"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[PRODIR]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="8b76bf3a-9ac8-45b6-abfe-d36bea53c4e2" x="483" y="0" width="72" height="12"/>
+				<reportElement uuid="8b76bf3a-9ac8-45b6-abfe-d36bea53c4e2" x="483" y="1" width="72" height="12"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[PRORUC]]></text>
 			</staticText>
 		</band>
-	</columnHeader>
+	</title>
 	<detail>
 		<band height="13" splitType="Stretch">
 			<textField>
