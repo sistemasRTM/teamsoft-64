@@ -21,8 +21,10 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JCheckBox;
 
 public class FIRegistroCompras extends MaestroInternalFrame {
+
 	private static final long serialVersionUID = 1L;
 	private static FIRegistroCompras gui=null;
 	private JTextField txtEjercicio;
@@ -57,6 +59,7 @@ public class FIRegistroCompras extends MaestroInternalFrame {
 	private JLabel lblCantidadDeErrores;
 	private JLabel lblCantErr;
 	private JLabel lblCantFil;
+	private JCheckBox chckbxCabecera;
 	
 	public static FIRegistroCompras createInstance() {
 		if (gui == null) {
@@ -67,6 +70,10 @@ public class FIRegistroCompras extends MaestroInternalFrame {
 
 	public static FIRegistroCompras getInstance() {
 		return gui;
+	}
+	
+	public FIRegistroCompras() {
+		//initialize();
 	}
 	
 	public void initialize() {
@@ -182,6 +189,10 @@ public class FIRegistroCompras extends MaestroInternalFrame {
 		lblCantFil.setVisible(false);
 		lblCantFil.setBounds(982, 96, 46, 14);
 		contenedorCenter.add(lblCantFil);
+		
+		chckbxCabecera = new JCheckBox("Cabecera");
+		chckbxCabecera.setBounds(180, 40, 97, 23);
+		contenedorCenter.add(chckbxCabecera);
 		
 		//highlighters = new HighlighterPipeline();
 	//	highlighters.addHighlighter(new AlternateRowHighlighter());
@@ -402,5 +413,8 @@ public class FIRegistroCompras extends MaestroInternalFrame {
 	
 	public void salir(){
 		dispose();
+	}
+	public boolean isHeader(){
+		return chckbxCabecera.isSelected();
 	}
 }

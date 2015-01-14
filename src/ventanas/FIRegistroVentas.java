@@ -65,6 +65,7 @@ public class FIRegistroVentas extends MaestroInternalFrame {
 			"WLRBI2_18", "WLRIVE_19", "WLROTC_20", "WLRITO_21" };
 	private JLabel lblSubTotalesPor;
 	private JScrollPane scpTotales;
+	private JCheckBox chckbxCabecera;
 
 	public static FIRegistroVentas createInstance() {
 		if (gui == null) {
@@ -78,7 +79,7 @@ public class FIRegistroVentas extends MaestroInternalFrame {
 	}
 
 	public FIRegistroVentas() {
-		// initialize();
+		 //initialize();
 	}
 
 	public void initialize() {
@@ -215,6 +216,10 @@ public class FIRegistroVentas extends MaestroInternalFrame {
 		scpTotales = new JScrollPane(tbTotales);
 		scpTotales.setBounds(781, 91, 546, 140);
 		contenedorCenter.add(scpTotales);
+		
+		chckbxCabecera = new JCheckBox("Cabecera");
+		chckbxCabecera.setBounds(180, 34, 97, 23);
+		contenedorCenter.add(chckbxCabecera);
 
 		txtEjercicio.requestFocus();
 		limpiarTablaTotales();
@@ -509,5 +514,8 @@ public class FIRegistroVentas extends MaestroInternalFrame {
 
 	public void salir() {
 		dispose();
+	}
+	public boolean isHeader(){
+		return chckbxCabecera.isSelected();
 	}
 }
