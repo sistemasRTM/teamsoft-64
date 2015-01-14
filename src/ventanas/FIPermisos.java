@@ -66,7 +66,7 @@ public class FIPermisos extends MaestroInternalFrame {
 	}
 
 	public void initialize(){
-		setSize(622, 410);
+		setSize(622, 768);
 		setTitle(Sesion.titulo + "-" + Sesion.tifGestionPermisos);
 		//
 		toolBar.setVisible(true);
@@ -83,7 +83,7 @@ public class FIPermisos extends MaestroInternalFrame {
 		lblEmpleado = new JLabel("Usuario:");
 		lblEmpleado.setBounds(10, 11, 77, 14);
 		panel.add(lblEmpleado);
-
+		
 		cboUsuario = new MaestroComboBox("speed407.trcia order by 1","distinct usucve","usucve");
 		cboUsuario.setBounds(77, 8, 135, 20);
 		cboUsuario.addItemListener(new ItemListener() {
@@ -113,7 +113,7 @@ public class FIPermisos extends MaestroInternalFrame {
 		cpPermisos.setLayout(new BorderLayout());
 
 		scpPermisos = new JScrollPane(cpPermisos);
-		scpPermisos.setBounds(10, 63, 586, 272);
+		scpPermisos.setBounds(10, 63, 586, 623);
 		contenedorCenter.add(scpPermisos);
 
 		cboPerfil = new MaestroComboBox(Sesion.bdProd + "tperfil",
@@ -308,6 +308,8 @@ public class FIPermisos extends MaestroInternalFrame {
 			}
 		});
 		//listarPermisos();
+
+		
 	}
 	
 	private void listarPermisos() {
