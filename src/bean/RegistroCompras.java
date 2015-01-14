@@ -40,7 +40,28 @@ public class RegistroCompras {
 	private int fila;//0
 	private int columna;//0
 	private String descripcion;//0
+	private String cintdiamay;
+	private String cintkardex;
+	private String cintreg;
 	
+	public String getCintdiamay() {
+		return cintdiamay;
+	}
+	public void setCintdiamay(String cintdiamay) {
+		this.cintdiamay = cintdiamay;
+	}
+	public String getCintkardex() {
+		return cintkardex;
+	}
+	public void setCintkardex(String cintkardex) {
+		this.cintkardex = cintkardex;
+	}
+	public String getCintreg() {
+		return cintreg;
+	}
+	public void setCintreg(String cintreg) {
+		this.cintreg = cintreg;
+	}
 	public int getFila() {
 		return fila;
 	}

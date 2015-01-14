@@ -110,8 +110,6 @@ public class VentasController implements ActionListener {
 			String msjError = "";
 			if (mVentas.getEjercicio().equals(""))
 				msjError += "-Ingrese Ejercicio \n";
-			if (mVentas.getPeriodo().equals(""))
-				msjError += "-Ingrese Periodo \n";
 			if (mVentas.getPeriodo().trim().length() == 1)
 				msjError += "-Ingrese formato correcto para el periodo.\n Por ejemplo: 01,02,03...12\n";
 			if (msjError.equals("")) {
@@ -180,15 +178,14 @@ public class VentasController implements ActionListener {
 		mVentas.getTextoProgreso().setText("Procesando, por favor espere.");
 
 		tregv.setRvejer(Integer.parseInt(mVentas.getEjercicio()));
-		tregv.setRvperi(Integer.parseInt(mVentas.getPeriodo()));
-		periodoInformado = Integer.parseInt(mVentas.getEjercicio()
-				+ mVentas.getPeriodo());
+		tregv.setRvperi(Integer.parseInt(mVentas.getPeriodo().equals("")?"01":mVentas.getPeriodo()));
+		//periodoInformado = Integer.parseInt(mVentas.getEjercicio()+ mVentas.getPeriodo());
 		TTIVC objTtivc = new TTIVC();
 		objTtivc.setTvejer(tregv.getRvejer());
 		objTtivc.setTvperi(tregv.getRvperi());
 		objTtivc.setTvtipo("RV");
 		try {
-			List<TREGV> listado = servicio.listarTREGC(tregv);
+			List<TREGV> listado = mVentas.getPeriodo().equals("")?servicio.listarTREGCForEjercicio(tregv):servicio.listarTREGC(tregv);
 			if (listado.size() > 0) {
 				correlativo = correlativoService.buscar(objTtivc);
 				if (correlativo != null) {
@@ -248,8 +245,8 @@ public class VentasController implements ActionListener {
 					  reporteTotales.get(0).setWLRIG1_17(redondear((Double.parseDouble(reporteTotales.get(0).getWLRIG1_17())-40)+""));
 					  reporteTotales.get(4).setWLRIG1_17(redondear((Double.parseDouble(reporteTotales.get(4).getWLRIG1_17())-40)+""));
 					 */
-					reajuste();
-					reajuste2();
+					//reajuste();
+					//reajuste2();
 					if (reporteTable.get(0).getReprocesoIGV() > 0
 							|| reporteTable.get(0).getReprocesoIT() > 0) {
 						mVentas.cargarTabla(reporteTable);
@@ -301,31 +298,77 @@ public class VentasController implements ActionListener {
 
 	public void agregarFila(TREGV tregv) {
 		reporte = new RegistroVentas();
+		String peri="";
+		if(tregv.getRvperi()<10){
+			peri="0"+tregv.getRvperi();
+		}else{
+			peri=""+tregv.getRvperi();
+		}
+		periodoInformado = Integer.parseInt(tregv.getRvejer()+peri);
+		System.out.println(periodoInformado);
+		System.out.println("proc1");
 		setWLREPE_1(tregv);
+		System.out.println("proc1.1");
 		setWLREST_27(tregv);
+		System.out.println("proc1.2");
 		setWLRCOD_2(tregv);
+		System.out.println("proc1.3");
 		setWLRFCP_3(tregv);
+		System.out.println("proc1.4");
 		setWLRTDO_5(tregv);
+		System.out.println("proc1.5");
 		setWLRFVE_4(tregv);
+		System.out.println("proc1.6");
 		setWLRSCP_6(tregv);
+		System.out.println("proc2");
 		setWLRNCP_7(tregv);
+		System.out.println("proc2.1");
 		setWLRIOD_8(tregv);
+		System.out.println("proc2.2");
 		setWLRFER_23_WLRTDR_24_WLRSRR_25_WLRNRR_26(tregv);
+		System.out.println("proc2.3");
 		setWLRTDI_9andWLRNDI_10andWLRNCL_11(tregv);
+		System.out.println("proc2.4");
 		setWLRVFE_12(tregv);
+		System.out.println("proc2.5");
 		setAbonos(tregv);
+		System.out.println("proc2.6");
 		setWLRBI1_13(tregv);
+		System.out.println("proc3");
 		setWLRITE_14_WLRITI_15(tregv);
 		setWLRISC_16(tregv);
 		setWLRIG1_17(tregv);
 		setWLRBI2_18(tregv);
 		setWLRIVE_19(tregv);
 		setWLROTC_20(tregv);
+		System.out.println("proc4");
 		setWLRITO_21(tregv);
 		setWLRTCA_22(tregv);
+		setRastreo(tregv);
 		// sumariza total por documento
 		agregarReporteTabla();
 		sumarizaTotalXTipoDocumento();
+		
+	}
+
+	private void setRastreo(TREGV tregv) {
+		if(!reporte.getWLRCOD_2().equals("")){
+		reporte.setVintdiamay(reporte.getWLRCOD_2());
+		reporte.setVintreg(reporte.getWLRCOD_2());
+		}else{
+			reporte.setVintdiamay("");
+			reporte.setVintreg("");
+			agregarError(28, wSecuTabla + 1,
+					"campo VINTDIAMAY es obligatorio.");
+			agregarError(30, wSecuTabla + 1,
+					"campo VINTREG es obligatorio.");
+		}
+		if(tregv.getCampo29()!=null){
+			reporte.setVintkardex(tregv.getCampo29());
+		}else{
+			reporte.setVintkardex("");
+		}
+		
 	}
 
 	private void setWLREPE_1(TREGV tregv) {
@@ -341,19 +384,19 @@ public class VentasController implements ActionListener {
 
 	private void setWLREST_27(TREGV tregv) {
 		int rvfech = tregv.getRvfech() / 100;
-		RegistroVentas rVentas = null;
 		if (tregv.getRvsitu().trim().equals("99") && rvfech == periodoInformado) {
 			reporte.setWLREST_27("2");
 		} else if (rvfech == periodoInformado) {
 			reporte.setWLREST_27("1");
-		} else if (rvfech < periodoInformado && rVentas == null) {
+		} else if (rvfech < periodoInformado) {
 			reporte.setWLREST_27("8");
-		} else if (rvfech < periodoInformado && rVentas != null) {
+		} else if (rvfech < periodoInformado) {
 			reporte.setWLREST_27("9");
 		}
 	}
 
 	private void setWLRCOD_2(TREGV tregv) {
+		try {
 		if (reporte.getWLREST_27().equals("1")) {
 			reporte.setWLRCOD_2(tregv.getRvasto());
 		} else if (reporte.getWLREST_27().equals("2")) {
@@ -420,6 +463,9 @@ public class VentasController implements ActionListener {
 			if (reporte.getWLRCOD_2().trim().equals("")) {
 				agregarError(2, wSecuTabla + 1, "Campo obligatorio.");
 			}
+		}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -549,13 +595,16 @@ public class VentasController implements ActionListener {
 	}
 
 	private void setWLRFER_23_WLRTDR_24_WLRSRR_25_WLRNRR_26(TREGV tregv) {
+		try {
+			
+		
 		if ((reporte.getWLRTDO_5().equals("07")
 				|| reporte.getWLRTDO_5().equals("08")
 				|| reporte.getWLRTDO_5().equals("87")
 				|| reporte.getWLRTDO_5().equals("88")
 				|| reporte.getWLRTDO_5().equals("97") || reporte.getWLRTDO_5()
 				.equals("98")) && !reporte.getWLREST_27().equals("2")) {
-
+			
 			if (tregv.getTncdh().getNhtdoc() != null
 					&& tregv.getRvtdoc().equals("NC")) {
 				String rvfech = "";
@@ -604,7 +653,12 @@ public class VentasController implements ActionListener {
 
 					tregvv.setRvndoc(cerosPVTA + pvta.trim() + cerosNUME
 							+ fabo.trim());
-					tregvv = servicio.buscarTNCDH(tregvv);
+					TREGV tregvvP = servicio.buscarTNCDH(tregvv);
+					if(tregvvP==null){
+						System.out.println("nulo nota");
+						tregvvP = servicio.buscarTNCDHTM(tregvv);
+					}
+					tregvv=tregvvP;
 					rvfech = tregvv.getRvfech() + "";
 					int rvfechEjeper = Integer.parseInt(rvfech) / 100;
 					if (rvfechEjeper <= periodoInformado) {
@@ -686,7 +740,7 @@ public class VentasController implements ActionListener {
 				}
 			}
 
-			else if (tregv.getTfvad().getFdglos() != null) {
+			else if (!tregv.getTfvad().getFdglos().equals("")) {
 				StringTokenizer stGeneral = new StringTokenizer("relleno " +tregv
 						.getTfvad().getFdglos().trim(), "**");
 				
@@ -708,7 +762,11 @@ public class VentasController implements ActionListener {
 				tregvv.setRvtdoc(tipo);
 				tregvv.setRvndoc(serie + numero);
 				try {
-					tregvv = servicio.buscarTFVAD(tregvv);
+					TREGV tregvvP = servicio.buscarTFVAD(tregvv);
+					if(tregvvP==null){
+						tregvvP = servicio.buscarTFVADTM(tregvv);
+					}
+					tregvv=tregvvP;
 					if (tregvv != null) {
 						String rvfech = tregvv.getRvfech() + "";
 						try {
@@ -738,7 +796,7 @@ public class VentasController implements ActionListener {
 						agregarError(23, wSecuTabla + 1, "Campo obligatorio.");
 					}
 				} catch (SQLException e1) {
-
+					e1.printStackTrace();
 				}
 
 				/*
@@ -764,6 +822,9 @@ public class VentasController implements ActionListener {
 			reporte.setWLRTDR_24("00");
 			reporte.setWLRSRR_25(alfaDefault);
 			reporte.setWLRNRR_26(alfaDefault);
+		}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -1109,6 +1170,7 @@ public class VentasController implements ActionListener {
 		try {
 			RegistroVentas reporte;
 			pw = new PrintWriter(new FileWriter(ruta));
+			pw.println("VPERIODO|VNUMREGOPE|VFECCOM|VFECVENPAG|VTIPDOCCOM|VNUMSER|VNUMDOCCOI|VNUMDOCCOF|VTIPDIDCLI|VNUMDIDCLI|VAPENOMRSO|VVALFACEXP|VBASIMPGRA|VIMPTOTEXTO|VIMPTOTINA|VISC|VIGVIPM|VBASIMVAP|VIVAP|VOTRTRICGO|VIMPTOTCOM|VTIPCAM|VFECCOMMOD|VTIPCCOMMOD|VNUMSERMOD|VNUMCOMMOD|VESTOPE|VINTDIAMAY|VINTKARDEX|VINTREG|");
 			for (int i = 0; i < reporteTable.size(); i++) {
 				totalReg++;
 				reporte = reporteTable.get(i);
@@ -1138,7 +1200,10 @@ public class VentasController implements ActionListener {
 						+ reporte.getWLRTDR_24().trim() + separador
 						+ reporte.getWLRSRR_25().trim() + separador
 						+ reporte.getWLRNRR_26().trim() + separador
-						+ reporte.getWLREST_27().trim() + separador);
+						+ reporte.getWLREST_27().trim() + separador
+						+ reporte.getVintdiamay().trim() + separador
+						+ reporte.getVintkardex().trim() + separador
+						+ reporte.getVintreg().trim() + separador);
 			}
 			pw.flush();
 			pw.close();
@@ -1191,7 +1256,10 @@ public class VentasController implements ActionListener {
 						+ reporte.getWLRTDR_24().trim() + separador
 						+ reporte.getWLRSRR_25().trim() + separador
 						+ reporte.getWLRNRR_26().trim() + separador
-						+ reporte.getWLREST_27().trim() + separador);
+						+ reporte.getWLREST_27().trim() + separador
+						+ reporte.getVintdiamay().trim() + separador
+						+ reporte.getVintkardex().trim() + separador
+						+ reporte.getVintreg().trim() + separador);
 			}
 			pw.flush();
 			pw.close();

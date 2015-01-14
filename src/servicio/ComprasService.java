@@ -8,7 +8,7 @@ import bean.TREGC;
 public interface ComprasService {
 	
 	public List<TREGC> listarTREGC(TREGC tregc) throws SQLException ;
-	
+	public List<TREGC> listarTREGCByEjercicio(TREGC tregc) throws SQLException;
 	public TALIAS listarTALIAS() throws SQLException ;
 	
 }

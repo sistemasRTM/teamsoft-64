@@ -53,8 +53,36 @@ public class TREGC {
 	private TPROV tprov;
 	private TTABD ttabdx;
 	private TTABD ttabdz;
-	private TTIDO ttidox;
+	private TTIDO ttidox;	
+	private double rcving;
+	private String cintdiamay;
+	private String cintkardex;
+	private String cintreg;
 	
+	public String getCintdiamay() {
+		return cintdiamay;
+	}
+	public void setCintdiamay(String cintdiamay) {
+		this.cintdiamay = cintdiamay;
+	}
+	public String getCintkardex() {
+		return cintkardex;
+	}
+	public void setCintkardex(String cintkardex) {
+		this.cintkardex = cintkardex;
+	}
+	public String getCintreg() {
+		return cintreg;
+	}
+	public void setCintreg(String cintreg) {
+		this.cintreg = cintreg;
+	}
+	public double getRcving() {
+		return rcving;
+	}
+	public void setRcving(double rcving) {
+		this.rcving = rcving;
+	}
 	public TTABD getTtabdz() {
 		return ttabdz;
 	}
