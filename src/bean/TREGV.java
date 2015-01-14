@@ -41,7 +41,44 @@ public class TREGV {
 	private double rvmone;
 	private String rvnref;
 	private String error;
-	
+	//
+	private String vintdiamay;
+	private String vintkardex;
+	private String vintreg;
+	private String campo29;
+		
+	public String getCampo29() {
+		return campo29;
+	}
+
+	public void setCampo29(String campo29) {
+		this.campo29 = campo29;
+	}
+
+	public String getVintdiamay() {
+		return vintdiamay;
+	}
+
+	public void setVintdiamay(String vintdiamay) {
+		this.vintdiamay = vintdiamay;
+	}
+
+	public String getVintkardex() {
+		return vintkardex;
+	}
+
+	public void setVintkardex(String vintkardex) {
+		this.vintkardex = vintkardex;
+	}
+
+	public String getVintreg() {
+		return vintreg;
+	}
+
+	public void setVintreg(String vintreg) {
+		this.vintreg = vintreg;
+	}
+
 	public String getError() {
 		return error;
 	}

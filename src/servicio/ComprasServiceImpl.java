@@ -23,4 +23,9 @@ public class ComprasServiceImpl implements ComprasService{
 		
 		return taliasDAO.listarTALIAS();
 	}
+
+	@Override
+	public List<TREGC> listarTREGCByEjercicio(TREGC tregc) throws SQLException {
+		return tregcDAO.listarTREGCByEjercicio(tregc);
+	}
 }

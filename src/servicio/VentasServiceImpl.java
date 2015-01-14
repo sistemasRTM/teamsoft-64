@@ -1,6 +1,7 @@
 package servicio;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import persistencia.TCLIEDAO;
@@ -111,5 +112,27 @@ public class VentasServiceImpl implements VentasService{
 			int ejercicio) throws SQLException {
 		return tregvDAO.obtenerVentasTotalesDolaresPorGrupo(cliente, ejercicio);
 	}
+
+	@Override
+	public List<TREGV> listarTREGCForEjercicio(TREGV tregv) throws SQLException {
+		return tregvDAO.listarTREGCForEjercicio(tregv);
+	}
+
+	@Override
+	public TREGV buscarTFVADTM(TREGV tregv) throws SQLException {
+		return tregvDAO.buscarTFVADTM(tregv);
+	}
+
+	@Override
+	public TREGV buscarTNCDHTM(TREGV tregv) throws SQLException {
+		return tregvDAO.buscarTNCDHTM(tregv);
+	}
+
+	@Override
+	public ArrayList<String[]> reporteVentasEjercicio(int ejer) {
+		return tregvDAO.reporteVentasEjercicio( ejer);
+	}
+	
+	
 
 }

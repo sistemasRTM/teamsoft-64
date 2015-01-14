@@ -13,6 +13,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
 import javax.swing.JFileChooser;
 
 import bean.Auditoria;
@@ -111,7 +112,6 @@ public class ComprasController implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
 		if (e.getSource() == registroCompras.getTxtEjercicio()) {
 			registroCompras.getTxtPeriodo().requestFocus();
 		} else if (e.getSource() == registroCompras.getProcesar()
@@ -119,8 +119,6 @@ public class ComprasController implements ActionListener {
 			String msjError = "";
 			if (registroCompras.getEjercicio().equals(""))
 				msjError += "Ingrese Ejercicio \n";
-			if (registroCompras.getPeriodo().equals(""))
-				msjError += "Ingrese Periodo \n";
 			if (registroCompras.getPeriodo().trim().length() == 1)
 				msjError += "-Ingrese formato correcto para el periodo.\n Por ejemplo: 01,02,03...12\n";
 			if (msjError.equals("")) {
@@ -196,11 +194,9 @@ public class ComprasController implements ActionListener {
 		registroCompras.getTextoProgreso().setText("Procesando, por favor espere.");
 		
 		tregc.setRcejer(Integer.parseInt(registroCompras.getEjercicio()));
-		tregc.setRcperi(Integer.parseInt(registroCompras.getPeriodo()));
-		periodoInformado = Integer.parseInt(registroCompras.getEjercicio()
-				+ registroCompras.getPeriodo());
+		tregc.setRcperi(Integer.parseInt(registroCompras.getPeriodo().equals("")?"01":registroCompras.getPeriodo()));
 		try {
-			List<TREGC> listaTREGC = servicio.listarTREGC(tregc);
+			List<TREGC> listaTREGC = registroCompras.getPeriodo().equals("")?servicio.listarTREGCByEjercicio(tregc):servicio.listarTREGC(tregc);
 			if (listaTREGC.size() > 0) {
 				reporteTxt.clear();
 				reporteTxtError.clear();
@@ -301,10 +297,18 @@ public class ComprasController implements ActionListener {
 		//ttabd = servicio.buscarTTABD("TDOCR", tregc.getRctdoc());
 		//tprov = servicio.buscarTPROV(tregc.getRccpro());
 		reporte = new RegistroCompras();
+		String peri="";
+		if(tregc.getRcperi()<10){
+			peri="0"+tregc.getRcperi();
+		}else{
+			peri=""+tregc.getRcperi();
+		}
+		periodoInformado = Integer.parseInt(tregc.getRcejer()+peri);
 		// ejercicio periodo
 		reporte.setWLREPE_1(periodoInformado + "00");
 		// numero unico de registro
 		setWLRCOD_2(tregc);
+		setCampo33_34_35();
 		// fecha de documento
 		setWLRFDO_3(tregc);
 		// tipo de documento
@@ -343,11 +347,26 @@ public class ComprasController implements ActionListener {
 		//
 		setImportes(tregc);
 		// sumariza para el importe total
-		sumarizaImporteTotal();
+		sumarizaImporteTotal(tregc);
 		// sumariza total por documento
 		sumarizaTotalXTipoDocumento();
 		xLrito += Double.parseDouble(reporte.getWLRITO_22());
 		agregarReporteTabla();
+	}
+
+	private void setCampo33_34_35() {
+		if(!reporte.getWLRCOD_2().equals("")){
+			reporte.setCintdiamay(reporte.getWLRCOD_2().trim());
+			reporte.setCintkardex(reporte.getWLRCOD_2().trim());
+			reporte.setCintreg(reporte.getWLRCOD_2().trim());
+		}else{
+			reporte.setCintdiamay("");
+			reporte.setCintkardex("");
+			reporte.setCintreg("");
+			agregarError(33, wSecuTabla + 1, "Campo es obligatorio");
+			agregarError(34, wSecuTabla + 1, "Campo es obligatorio");
+			agregarError(35, wSecuTabla + 1, "Campo es obligatorio");
+		}
 	}
 
 	private void setWLRCOD_2(TREGC tregc) {
@@ -560,10 +579,13 @@ public class ComprasController implements ActionListener {
 	}
 
 	private void setWLRTCA(int rcmone, double rctcam) {
+		/*
 		if (rcmone != 0) {
 			reporte.setWLRTCA_23(redondearTC(rctcam + ""));
 		} else
 			reporte.setWLRTCA_23("0.000");
+			*/
+		reporte.setWLRTCA_23(redondearTC(rctcam + ""));
 	}
 
 	private void setWLRFERandWLRTDRandWLRSRRandWLRNRR(String wlrtdo, TREGC tregc) {
@@ -676,7 +698,7 @@ public class ComprasController implements ActionListener {
 					reporte.setWLRDNR_30(dnr + "");
 				} catch (Exception e) {
 					reporte.setWLRDNR_30(rcref1);
-					agregarError(30, wSecuTabla + 1, "Formato incorrecto");
+					//agregarError(30, wSecuTabla + 1, "Formato incorrecto");
 				}
 
 			} else {
@@ -690,7 +712,6 @@ public class ComprasController implements ActionListener {
 	}
 
 	private void setWLRMPR(TREGC tregc) throws SQLException {
-		
 		double rcpvtai = Double.parseDouble(tregc.getRcpvta());
 		double ireten = Double.parseDouble(talias.getAli027());
 
@@ -767,7 +788,6 @@ public class ComprasController implements ActionListener {
 	}
 
 	private void setImportes(TREGC tregc) throws SQLException {
-		
 		if (tregc.getRcmone() == 0) {
 			reporte.setWLRBI1_13(tregc.getRcvalv() + "");
 			reporte.setWLRIG1_14(tregc.getRcimp1() + "");
@@ -811,7 +831,7 @@ public class ComprasController implements ActionListener {
 		}
 	}
 
-	private void sumarizaImporteTotal() {
+	private void sumarizaImporteTotal(TREGC tregc) {
 		double importeTotalDocumento = Double.parseDouble(reporte
 				.getWLRBI1_13())
 				+ Double.parseDouble(reporte.getWLRIG1_14())
@@ -822,12 +842,12 @@ public class ComprasController implements ActionListener {
 				+ Double.parseDouble(reporte.getWLRVAG_19())
 				+ Double.parseDouble(reporte.getWLRISC_20())
 				+ Double.parseDouble(reporte.getWLROTC_21())
-				+ Double.parseDouble(reporte.getWLRRET()) + xCret1;
-		reporte.setWLRITO_22(importeTotalDocumento + "");
+				+ Double.parseDouble(reporte.getWLRRET()) + xCret1+tregc.getRcving();
+		//RCPVTA
+		reporte.setWLRITO_22(tregc.getRcpvta());
 	}
 
 	private void sumarizaTotalXTipoDocumento() {
-		
 		TDBI1 += Double.parseDouble(reporte.getWLRBI1_13());
 		TDIG1 += Double.parseDouble(reporte.getWLRIG1_14());
 		TDBI2 += Double.parseDouble(reporte.getWLRBI2_15());
@@ -839,6 +859,7 @@ public class ComprasController implements ActionListener {
 		TDOTC += Double.parseDouble(reporte.getWLROTC_21());
 		TDRET += Double.parseDouble(reporte.getWLRRET());
 		TDITO += Double.parseDouble(reporte.getWLRITO_22());
+		
 	}
 
 	/*
@@ -1031,6 +1052,7 @@ public class ComprasController implements ActionListener {
 		try {
 			RegistroCompras reporte;
 			pw = new PrintWriter(new FileWriter(ruta));
+			pw.println("CPERIODO|CNUMREGOPE|CFECCOM|CFECVENPAG|CTIPDOCCOM|CNUMSER|CEMIDUADSI|CNUMDCOFV|COSDCREFIS|CTIPDIDPRO|CNUMDIDPRO|CNOMRSOPRO|CBASIMPGRA|CIGVGRA|CBASIMPGNG|CIGVGRANGV|CBASIMPSCF|CIGVSCF|CIMPTOTNGV|CISC|COTRTRIOGO|CIMPTOTCOM|CTIPCAM|CFECCOMMOD|CTIPCOMMOD|CNUNSERMOD|CNUNCOMMOD|CCOMNODOMI|CEMIDEPDET|CNUMDEPDET|CCOMPGRET|CESTOPE|CINTDIAMAY|CINTKARDEX|CINTREG|");
 			for (int i = 0; i < reporteTxt.size(); i++) {
 				totalReg++;
 				reporte = reporteTxt.get(i);
@@ -1065,7 +1087,10 @@ public class ComprasController implements ActionListener {
 						+ reporte.getWLRDFE_29().trim() + separador
 						+ reporte.getWLRDNR_30().trim() + separador
 						+ reporte.getWLRMPR_31().trim() + separador
-						+ reporte.getWLREST_32().trim() + separador);
+						+ reporte.getWLREST_32().trim() + separador
+						+ reporte.getCintdiamay().trim() + separador
+						+ reporte.getCintkardex().trim() + separador
+						+ reporte.getCintreg().trim() + separador);
 			}
 			pw.flush();
 			pw.close();
@@ -1123,7 +1148,10 @@ public class ComprasController implements ActionListener {
 						+ reporte.getWLRDFE_29().trim() + separador
 						+ reporte.getWLRDNR_30().trim() + separador
 						+ reporte.getWLRMPR_31().trim() + separador
-						+ reporte.getWLREST_32().trim() + separador);
+						+ reporte.getWLREST_32().trim() + separador
+						+ reporte.getCintdiamay().trim() + separador
+						+ reporte.getCintkardex().trim() + separador
+						+ reporte.getCintreg().trim() + separador);
 			}
 			pw.flush();
 			pw.close();
@@ -1147,7 +1175,7 @@ public class ComprasController implements ActionListener {
 			num = Double.parseDouble(numero);
 			return formateador.format(num);
 		} catch (Exception e) {
-		
+			
 		}
 		return num + "";
 	}
@@ -1158,6 +1186,7 @@ public class ComprasController implements ActionListener {
 			num = Double.parseDouble(numero);
 			return formateadorTC.format(num);
 		} catch (Exception e) {
+	
 		}
 		return num + "";
 	}

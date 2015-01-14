@@ -38,6 +38,36 @@ public class RegistroVentas {
 	private int reprocesoIGV;
 	private int reprocesoIT;
 	
+	private String vintdiamay;
+	private String vintkardex;
+	private String vintreg;
+	
+	
+	
+	public String getVintdiamay() {
+		return vintdiamay;
+	}
+
+	public void setVintdiamay(String vintdiamay) {
+		this.vintdiamay = vintdiamay;
+	}
+
+	public String getVintkardex() {
+		return vintkardex;
+	}
+
+	public void setVintkardex(String vintkardex) {
+		this.vintkardex = vintkardex;
+	}
+
+	public String getVintreg() {
+		return vintreg;
+	}
+
+	public void setVintreg(String vintreg) {
+		this.vintreg = vintreg;
+	}
+	
 	public int getReprocesoIT() {
 		return reprocesoIT;
 	}

@@ -1,6 +1,7 @@
 package servicio;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import bean.TCLIE;
@@ -9,8 +10,11 @@ import bean.TREGVDTO;
 
 public interface VentasService {
 	public List<TREGV> listarTREGC(TREGV tregv) throws SQLException ;
+	public List<TREGV> listarTREGCForEjercicio(TREGV tregv) throws SQLException;
 	public TREGV buscarTFVAD(TREGV tregv) throws SQLException;
 	public TREGV buscarTNCDH(TREGV tregv) throws SQLException;
+	public TREGV buscarTFVADTM(TREGV tregv) throws SQLException;
+	public TREGV buscarTNCDHTM(TREGV tregv) throws SQLException;
 	
 	public List<TREGVDTO> obtenerVentasTotalesSoles(String cliente, int ejercicio) throws SQLException;
 	public List<TREGVDTO> obtenerVentasTotalesSolesPorGrupo(String cliente, int ejercicio) throws SQLException;
@@ -27,4 +31,6 @@ public interface VentasService {
 	public List<TREGVDTO> getMontoMotosDevueltasPorGrupo(String cliente, String ejercicio) throws SQLException;
 	public TCLIE getCliente(String codigo) throws SQLException;
 	public TCLIE getClienteGrupo(String codigo) throws SQLException;
+	public ArrayList<String[]> reporteVentasEjercicio(int ejer);
+	
 }
