@@ -1464,7 +1464,7 @@ public class VentasController implements ActionListener {
 			// *************************
 			// si aun hay diferencias en el reajuste
 			if (TGIG1 != igvEsperado) {
-				reajuste();
+				//reajuste();
 			}
 			// *************************
 		}
@@ -1649,7 +1649,7 @@ public class VentasController implements ActionListener {
 				// *************************
 				// si aun hay diferencias en el reajuste
 				if (TGITO != tEsperado) {
-					reajuste2();
+					//reajuste2();
 				}
 				// *************************
 			}
