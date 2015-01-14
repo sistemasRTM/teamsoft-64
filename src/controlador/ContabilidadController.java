@@ -36,6 +36,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
 import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.view.JasperViewer;
 import bean.LibroKardex;
 import bean.RegistroOperacionDiaria;
 import bean.TARTCON;
@@ -77,9 +78,12 @@ import ventanas.FIMantenimientoTTIPTRAN;
 import ventanas.FIReImpresionDocumentos;
 import ventanas.FIRegistrarMovimiento;
 import ventanas.FIRegistroOperacionDiaria;
+import ventanas.FIReporteArticulosSunat;
+import ventanas.FIReporteClientesSunat;
 import ventanas.FIReporteLibroDiario;
 import ventanas.FIReporteLibroKardex;
 import ventanas.FIReporteLibroMayor;
+import ventanas.FIReporteProveedoresSunat;
 
 public class ContabilidadController implements ActionListener, KeyListener {
 
@@ -96,7 +100,10 @@ public class ContabilidadController implements ActionListener, KeyListener {
 	private FIMantenimientoTREGOP fiMRO;
 	private FIReImpresionDocumentos fImpr;
 	private FIRegistrarMovimiento fiRegMov;
-
+	private FIReporteClientesSunat mReporteClienteSunat;
+	private FIReporteProveedoresSunat mReporteProveedoresSunat;
+	private FIReporteArticulosSunat mReporteArticulosSunat;
+	
 	ComisionService comisionService = GestionComision.getComisionService();
 
 	RegistroOperacionDiariaService servicioROD = GestionContabilidad
@@ -124,10 +131,22 @@ public class ContabilidadController implements ActionListener, KeyListener {
 	List<Object[]> saldosIniciales = new ArrayList<Object[]>();
 	//***************************************
 	
+	public ContabilidadController(FIReporteArticulosSunat fireportearticulossunat){
+		this.mReporteArticulosSunat = fireportearticulossunat;
+	}
+	
+	public ContabilidadController(FIReporteProveedoresSunat fireproveedoressunat){
+		this.mReporteProveedoresSunat = fireproveedoressunat;
+	}
+	
+	public ContabilidadController(FIReporteClientesSunat fireporteclientes){
+		this.mReporteClienteSunat = fireporteclientes;
+	}
+	
 	public ContabilidadController(FIReImpresionDocumentos fImpr) {
 		this.fImpr = fImpr;
 	}
-
+	
 	public ContabilidadController(
 			FIRegistroOperacionDiaria mRegistroOperacionDiaria) {
 		this.mRegistroOperacionDiaria = mRegistroOperacionDiaria;
@@ -1922,8 +1941,80 @@ public class ContabilidadController implements ActionListener, KeyListener {
 				procesarLibroMayor();
 			} 
 		}
+		if (mReporteClienteSunat != null) {
+			if (e.getSource() == mReporteClienteSunat.getSalir()){
+				FIReporteClientesSunat.close();
+				mReporteClienteSunat.salir();
+			}else if (e.getSource() == mReporteClienteSunat.getProcesar()){
+				procesarClientesSunat();
+			}
+		}
+		
+		if (mReporteProveedoresSunat != null) {
+			if (e.getSource() == mReporteProveedoresSunat.getSalir()){
+				FIReporteProveedoresSunat.close();
+				mReporteProveedoresSunat.salir();
+			}else if (e.getSource() == mReporteProveedoresSunat.getProcesar()){
+				procesarProveedoresSunat();
+			}
+		}
+		
+		if (mReporteArticulosSunat != null) {
+			if (e.getSource() == mReporteArticulosSunat.getSalir()){
+				FIReporteArticulosSunat.close();
+				mReporteArticulosSunat.salir();
+			}else if (e.getSource() == mReporteArticulosSunat.getProcesar()){
+				procesarArticulosSunat();
+			}
+		}
+		
+		
 	}
-
+	
+	private void procesarArticulosSunat(){
+		try {		 
+			 JasperReport reporte = (JasperReport) JRLoader.loadObject(ClassLoader.getSystemResource("reportes/ReporteArticulosSunat.jasper"));
+			 HashMap<String, Object> parametros = new  HashMap<String, Object>();
+			 parametros.put("ejercicio",Integer.parseInt(mReporteArticulosSunat.getEjercicio()));
+			 JasperPrint jpReporte = JasperFillManager.fillReport(reporte,parametros, Conexion.obtenerConexion() );
+			JasperViewer.viewReport(jpReporte,false);
+		} catch (JRException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	private void procesarProveedoresSunat(){
+		try {		 
+			 JasperReport reporte = (JasperReport) JRLoader.loadObject(ClassLoader.getSystemResource("reportes/ReporteProveedoresSunat.jasper"));
+			 HashMap<String, Object> parametros = new  HashMap<String, Object>();
+			 parametros.put("ejercicio",Integer.parseInt(mReporteProveedoresSunat.getEjercicio()));
+			 JasperPrint jpReporte = JasperFillManager.fillReport(reporte,parametros, Conexion.obtenerConexion() );
+			JasperViewer.viewReport(jpReporte,false);
+		} catch (JRException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+	}
+	
+	private void procesarClientesSunat(){
+		
+			try {		 
+				 JasperReport reporte = (JasperReport) JRLoader.loadObject(ClassLoader.getSystemResource("reportes/ReporteClientesSunat.jasper"));
+				 HashMap<String, Object> parametros = new  HashMap<String, Object>();
+				 parametros.put("ejercicio",Integer.parseInt(mReporteClienteSunat.getEjercicio()));
+				 JasperPrint jpReporte = JasperFillManager.fillReport(reporte,parametros, Conexion.obtenerConexion() );
+				JasperViewer.viewReport(jpReporte,false);
+			} catch (JRException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			
+		
+	}
+	
 	private void procesarLibroMayor() {
 		if(!mReporteLibroMayor.getEjercicio().isEmpty()){
 		int ejercicio = Integer.parseInt(mReporteLibroMayor.getEjercicio());			

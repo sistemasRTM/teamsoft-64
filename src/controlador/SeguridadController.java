@@ -386,6 +386,9 @@ public class SeguridadController implements ActionListener {
 					case 49:
 						gui.getSubOpcReporteLibroMayor().setVisible(true);
 						break;
+					case 50:
+						gui.getSubOpcReporteClientesSunat().setVisible(true);
+						break;
 					}
 				}
 
