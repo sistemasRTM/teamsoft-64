@@ -5,6 +5,7 @@
 package recursos;
 
 import java.awt.Component;
+
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,6 +13,7 @@ import javax.swing.JTree;
 import javax.swing.UIManager;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreeCellRenderer;
+
 import bean.PlantillaPermisos;
 
 /**
