@@ -4,19 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-
 import delegate.GestionPrecios;
-
 import bean.ListaPrecio;
 import jxl.CellView;
 import jxl.Sheet;
@@ -110,7 +102,6 @@ public class PreciosController implements ActionListener {
 				int secPendientes=0;
 				int secuencia=0;
 				double igv = 0;
-				String moneda="";
 				String data, data1, data2, data3, data4, data5;
 				String ruta = mListaPrecios.getDestino();
 				/*crear hoja excel*/
@@ -253,7 +244,7 @@ public class PreciosController implements ActionListener {
 							s.addCell(new Label(2, secNuevos,data1,wcfDatos));
 							s.addCell(new Label(1, secNuevos, data2,wcfDatos));
 							s.addCell(new jxl.write.Number(3, secNuevos, Double.parseDouble(data3),wcfDatos));
-							s.addCell(new Label(4, secNuevos, moneda = listaPrecioNueva.getMoneda() > 0 ? "D": "S",wcfDatos));
+							s.addCell(new Label(4, secNuevos, listaPrecioNueva.getMoneda() > 0 ? "D": "S",wcfDatos));
 							s.addCell(new jxl.write.Number(5, secNuevos, listaPrecioNueva.getDescuento(),wcfDatos));
 							s.addCell(new jxl.write.Number(6, secNuevos, igv,wcfDatos));
 						    //servicio.registrarPrecios(listaPrecioNueva);							 
@@ -366,7 +357,7 @@ public class PreciosController implements ActionListener {
 			*/
 		} catch (Exception ioe) {
 			ioe.printStackTrace();
-			if(w==null){
+			if(w!=null){
 				try {
 					w.write();
 					w.close();
@@ -380,38 +371,6 @@ public class PreciosController implements ActionListener {
 		}
 	}
 	
-	private void procesarListadePrecios2(String archivoDestino) {
-		int secNuevos=0;
-		int secModificados=0;
-		try {
-			org.apache.poi.ss.usermodel.Workbook workbook = WorkbookFactory
-					.create(new FileInputStream(archivoDestino));
-			org.apache.poi.ss.usermodel.Sheet sheet = workbook.getSheetAt(0);
-			for (int j = 1; j <= sheet.getLastRowNum(); j++) {
-				Row row = sheet.getRow(j);
-				if (row != null) {
-					if (row.getLastCellNum() > -1) {
-						if (!row.getCell(row.getLastCellNum()-1).getStringCellValue().trim().equals("")) {
-							Object[] fila = new Object[40];
-							fila[0] = j;
-							for (int i = 0; i < row.getLastCellNum(); i++) {
-								Cell c = row.getCell(i);
-								if (c != null) {
-									c.setCellType(Cell.CELL_TYPE_STRING);
-									fila[i + 1] = c.getStringCellValue();
-								} else {
-									fila[i + 1] = " ";
-								}
-							}
-							//dtm.addRow(fila);
-						}
-					}
-				}
-			}
-		} catch (Exception e) {
-			Sesion.mensajeError(null, "Mensaje: " + e.getMessage()
-					+ "\nCausa: " + e.getCause());
-		}
-	}
+	
 
 }
