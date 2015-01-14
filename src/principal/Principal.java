@@ -3,6 +3,8 @@ package principal;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+
+import net.sf.jasperreports.engine.util.JRStyledText.Run;
 import recursos.Sesion;
 import controlador.SeguridadController;
 import ventanas.FLogin;
@@ -60,7 +62,6 @@ public class Principal {
 	        				  " Max Memory:"+Runtime.getRuntime().maxMemory()+"\t"+
 	        				  " Total Memory:"+Runtime.getRuntime().totalMemory());
 					 */
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
