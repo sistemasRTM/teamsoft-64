@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteArticulosSunat" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="adec7219-ce60-4aed-8bfe-16aadc655ba6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ejercicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select MDCOAR , ARTDES from speed400tc.tmovd inner join speed400tc.tarti on mdcoar = artcod where mdejer = $P{ejercicio}  and mdcmov = 'S' and mdtmov = '01' group by MDCOAR , ARTDES order by ARTDES
+
+]]>
+	</queryString>
+	<field name="MDCOAR" class="java.lang.String"/>
+	<field name="ARTDES" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="13" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="451f0248-0347-4f9d-94e3-9c7910c3994d" x="0" y="0" width="100" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MDCOAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ff65797a-9729-4f65-97d9-37ea9abcc0b7" x="100" y="0" width="438" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ARTDES]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement uuid="6b6ea747-d2f6-4462-8af5-5069d68cdc98" x="0" y="0" width="100" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MDCOAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9dde2799-f432-46e5-bdeb-05ba7ad2113d" x="100" y="0" width="438" height="13"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ARTDES}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

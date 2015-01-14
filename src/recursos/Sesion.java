@@ -118,6 +118,9 @@ public class Sesion {
 	public static String tifReporteLibroKardex = "Reporte Libro Kardex";
 	public static String tifReporteLibroDiario = "Reporte Libro Diario";
 	public static String tifReporteLibroMayor = "Reporte Libro Mayor";
+	public static String tifReporteClienteSunat = "Reporte de Clientes Sunat";
+	public static String tifReporteProveedorSunat = "Reporte de Proveedores Sunat";
+	public static String tifReporteArticulosSunat = "Reporte de Articulos Sunat";
 	
 	public static String tifRegistroPresentacionComercial = "Mantenimiento de Registro de Presentación Comercial";
 	public static String tifRegistroOperacion = "Mantenimiento de Registro de Operaciones";

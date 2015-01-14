@@ -9,11 +9,11 @@ import recursos.Sesion;
 import recursos.TextFilterDocument;
 import javax.swing.JCheckBox;
 
-public class FIReporteLibroDiario extends MaestroInternalFrame{
+public class FIReporteProveedoresSunat extends MaestroInternalFrame{
 
 
 	private static final long serialVersionUID = 1L;
-	private static FIReporteLibroDiario gui=null;
+	private static FIReporteProveedoresSunat gui=null;
 	private JTextField txtEjercicio;
 	private JButton btnProcesar;
 	private JLabel lblEjercicio;
@@ -21,24 +21,24 @@ public class FIReporteLibroDiario extends MaestroInternalFrame{
 			TextFilterDocument.DIGITS, 4);
 	private JCheckBox chckbxCabecera;
 
-	public static FIReporteLibroDiario createInstance() {
+	public static FIReporteProveedoresSunat createInstance() {
 		if (gui == null) {
-			gui = new FIReporteLibroDiario();
+			gui = new FIReporteProveedoresSunat();
 		}
 		return gui;
 	}
 
-	public static FIReporteLibroDiario getInstance() {
+	public static FIReporteProveedoresSunat getInstance() {
 		return gui;
 	}
 	
-	public FIReporteLibroDiario() {
-		initialize();
+	public FIReporteProveedoresSunat() {
+		//initialize();
 	}
 	
 	public void initialize() {
 		setSize(321, 138);
-		setTitle(Sesion.titulo+"-"+Sesion.tifReporteLibroDiario);
+		setTitle(Sesion.titulo+"-"+Sesion.tifReporteProveedorSunat);
 		//
 		toolBar.setVisible(true);
 		//

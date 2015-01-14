@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteProveedoresSunat" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b30634d8-deb7-4ffd-9053-163f316937cc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ejercicio" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select trim(procve)procve,trim(pronom) pronom,trim(prodir) prodir,trim(proruc) proruc from speed400tc.tprov inner join speed400tc.tregc on procve = rccpro where rcejer = $P{ejercicio}  group by procve,pronom,prodir,proruc order by pronom]]>
+	</queryString>
+	<field name="PROCVE" class="java.lang.String"/>
+	<field name="PRONOM" class="java.lang.String"/>
+	<field name="PRODIR" class="java.lang.String"/>
+	<field name="PRORUC" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="13" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="07b88192-c862-40ee-b883-b2a0f4a0990a" x="0" y="0" width="62" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[PROCVE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="267105a2-33ff-4a09-99e4-2e5c587ae5df" x="62" y="0" width="219" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[PRONOM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f6a5ab8b-e647-4857-861c-c0c0c7d884e9" x="281" y="0" width="202" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[PRODIR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8b76bf3a-9ac8-45b6-abfe-d36bea53c4e2" x="483" y="0" width="72" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[PRORUC]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="13" splitType="Stretch">
+			<textField>
+				<reportElement uuid="b2196245-a332-4a9d-b6d3-3567dcb3a6d5" x="0" y="0" width="62" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PROCVE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a7832bbb-6065-4ebb-ace8-62a7664bc0a6" x="281" y="0" width="202" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRODIR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="95657006-c38f-4efb-93d5-fa77f5b1895e" x="483" y="0" width="72" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRORUC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="02405238-1c0f-4f00-924b-c808441fc437" x="62" y="0" width="219" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PRONOM}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -54,6 +54,9 @@ public class FMenuPrincipalContabilidad extends MaestroFrame {
 	private JMenuItem mntmLibroKardex;
 	private JMenuItem mntmLibroDiario;
 	private JMenuItem mntmLibroMayor;
+	private JMenuItem mntmReporteDeClientesSunat;
+	private JMenuItem mntmReporteDeProveedores;
+	private JMenuItem mntmReporteDeArticulos;
 	
 	
 	public static FMenuPrincipalContabilidad createInstance() {
@@ -347,6 +350,103 @@ public class FMenuPrincipalContabilidad extends MaestroFrame {
 		mnReporte.add(mntmLibroMayor);
 		
 		mnReporte.add(mntmImprimirDocumentos);
+		
+		mntmReporteDeClientesSunat = new JMenuItem("Reporte de Clientes Sunat");
+		mntmReporteDeClientesSunat.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(FIReporteClientesSunat.getInstance() == null){
+					FIReporteClientesSunat fireporteclientes = FIReporteClientesSunat.createInstance();
+					fireporteclientes.initialize();
+					try {
+						Sesion.operaciones = LoginServicio.listarOperaciones(4,
+								1, 50);
+						for (Operacion operacion : Sesion.operaciones) {
+							switch (operacion.getCodigo()) {
+							case 11:
+								fireporteclientes.getSalir().setVisible(true);
+								break;
+							case 16:
+								fireporteclientes.getProcesar().setEnabled(true);
+								break;
+							}
+						}
+					} catch (SQLException e1) {
+					}
+					ContabilidadController controlador = new ContabilidadController(fireporteclientes);
+					fireporteclientes.setControlador(controlador);
+					dpEscritorio.add(fireporteclientes,Sesion.show);
+				}else{
+					FIReporteClientesSunat.getInstance().toFront();
+				}
+			}
+		});
+		mnReporte.add(mntmReporteDeClientesSunat);
+		
+		mntmReporteDeProveedores = new JMenuItem("Reporte de Proveedores Sunat");
+		mntmReporteDeProveedores.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(FIReporteProveedoresSunat.getInstance() == null){
+					FIReporteProveedoresSunat fireporteproveedor = FIReporteProveedoresSunat.createInstance();
+					fireporteproveedor.initialize();
+					try {
+						Sesion.operaciones = LoginServicio.listarOperaciones(4,
+								1, 51);
+						for (Operacion operacion : Sesion.operaciones) {
+							switch (operacion.getCodigo()) {
+							case 11:
+								fireporteproveedor.getSalir().setVisible(true);
+								break;
+							case 16:
+								fireporteproveedor.getProcesar().setEnabled(true);
+								break;
+							}
+						}
+					} catch (SQLException e1) {
+					}
+					ContabilidadController controlador = new ContabilidadController(fireporteproveedor);
+					fireporteproveedor.setControlador(controlador);
+					dpEscritorio.add(fireporteproveedor,Sesion.show);
+				}else{
+					FIReporteProveedoresSunat.getInstance().toFront();
+				}
+			}
+		});
+		mnReporte.add(mntmReporteDeProveedores);
+		
+		mntmReporteDeArticulos = new JMenuItem("Reporte de Articulos Sunat");
+		mntmReporteDeArticulos.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(FIReporteArticulosSunat.getInstance() == null){
+					FIReporteArticulosSunat fireportearticulos = FIReporteArticulosSunat.createInstance();
+					fireportearticulos.initialize();
+					try {
+						Sesion.operaciones = LoginServicio.listarOperaciones(4,
+								1, 52);
+						for (Operacion operacion : Sesion.operaciones) {
+							switch (operacion.getCodigo()) {
+							case 11:
+								fireportearticulos.getSalir().setVisible(true);
+								break;
+							case 16:
+								fireportearticulos.getProcesar().setEnabled(true);
+								break;
+							}
+						}
+					} catch (SQLException e1) {
+					}
+					ContabilidadController controlador = new ContabilidadController(fireportearticulos);
+					fireportearticulos.setControlador(controlador);
+					dpEscritorio.add(fireportearticulos,Sesion.show);
+				}else{
+					FIReporteProveedoresSunat.getInstance().toFront();
+				}
+			}
+		});
+		mnReporte.add(mntmReporteDeArticulos);
+		
 		
 		
 		btnSalir = new JButton("",Sesion.cargarIcono(Sesion.imgSalir));
@@ -791,4 +891,7 @@ public class FMenuPrincipalContabilidad extends MaestroFrame {
 		return mntmLibroMayor;
 	}
 	
+	public JMenuItem getSubOpcReporteClientesSunat() {
+		return mntmReporteDeClientesSunat;
+	}
 }
