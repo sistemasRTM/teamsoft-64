@@ -60,6 +60,7 @@ public class FIReporteClientesSunat extends MaestroInternalFrame{
 		chckbxCabecera = new JCheckBox("Cabecera");
 		chckbxCabecera.setBounds(21, 34, 97, 23);
 		contenedorCenter.add(chckbxCabecera);
+		chckbxCabecera.setVisible(false);
 		
 		txtEjercicio.requestFocus();
 	}
