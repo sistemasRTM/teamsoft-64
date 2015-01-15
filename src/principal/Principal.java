@@ -52,7 +52,6 @@ public class Principal {
 					System.out.println(contrbs2.length);
 					//net.sf.jasperreports.engine.export.ooxml.JRXlsxExporter
 					
-					
 					Sesion.mensajeInformacion(null,"Free Momory:"+(Runtime.getRuntime().freeMemory()/1024)/1024+"\t"+
 	        				  " Max Memory:"+(Runtime.getRuntime().maxMemory()/1024)/1024+"\t"+
 	        				  " Total Memory:"+(Runtime.getRuntime().totalMemory()/1024)/1024 );
