@@ -3,8 +3,6 @@ package principal;
 
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-
-import net.sf.jasperreports.engine.util.JRStyledText.Run;
 import recursos.Sesion;
 import controlador.SeguridadController;
 import ventanas.FLogin;
