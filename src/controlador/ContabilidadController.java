@@ -1976,6 +1976,7 @@ public class ContabilidadController implements ActionListener, KeyListener {
 			 JasperReport reporte = (JasperReport) JRLoader.loadObject(ClassLoader.getSystemResource("reportes/ReporteArticulosSunat.jasper"));
 			 HashMap<String, Object> parametros = new  HashMap<String, Object>();
 			 parametros.put("ejercicio",Integer.parseInt(mReporteArticulosSunat.getEjercicio()));
+			 parametros.put("flag",new Boolean(mReporteArticulosSunat.isHeader()));
 			 JasperPrint jpReporte = JasperFillManager.fillReport(reporte,parametros, Conexion.obtenerConexion() );
 			JasperViewer.viewReport(jpReporte,false);
 		} catch (JRException e1) {
@@ -1989,6 +1990,7 @@ public class ContabilidadController implements ActionListener, KeyListener {
 			 JasperReport reporte = (JasperReport) JRLoader.loadObject(ClassLoader.getSystemResource("reportes/ReporteProveedoresSunat.jasper"));
 			 HashMap<String, Object> parametros = new  HashMap<String, Object>();
 			 parametros.put("ejercicio",Integer.parseInt(mReporteProveedoresSunat.getEjercicio()));
+			 parametros.put("flag",new Boolean(mReporteProveedoresSunat.isHeader()));
 			 JasperPrint jpReporte = JasperFillManager.fillReport(reporte,parametros, Conexion.obtenerConexion() );
 			JasperViewer.viewReport(jpReporte,false);
 		} catch (JRException e1) {
@@ -2004,6 +2006,7 @@ public class ContabilidadController implements ActionListener, KeyListener {
 				 JasperReport reporte = (JasperReport) JRLoader.loadObject(ClassLoader.getSystemResource("reportes/ReporteClientesSunat.jasper"));
 				 HashMap<String, Object> parametros = new  HashMap<String, Object>();
 				 parametros.put("ejercicio",Integer.parseInt(mReporteClienteSunat.getEjercicio()));
+				 parametros.put("flag",new Boolean(mReporteClienteSunat.isHeader()));
 				 JasperPrint jpReporte = JasperFillManager.fillReport(reporte,parametros, Conexion.obtenerConexion() );
 				JasperViewer.viewReport(jpReporte,false);
 			} catch (JRException e1) {

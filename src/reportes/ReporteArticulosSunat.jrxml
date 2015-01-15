@@ -6,15 +6,15 @@
 	<parameter name="ejercicio" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="flag" class="java.lang.Boolean"/>
 	<queryString>
-		<![CDATA[select MDCOAR , ARTDES from speed400tc.tmovd inner join speed400tc.tarti on mdcoar = artcod where mdejer = $P{ejercicio}  and mdcmov = 'S' and mdtmov = '01' group by MDCOAR , ARTDES order by ARTDES
-
-]]>
+		<![CDATA[select MDCOAR , ARTDES from speed400tc.tmovd inner join speed400tc.tarti on mdcoar = artcod where mdejer = $P{ejercicio}  and mdcmov = 'S' and mdtmov = '01' group by MDCOAR , ARTDES order by ARTDES]]>
 	</queryString>
 	<field name="MDCOAR" class="java.lang.String"/>
 	<field name="ARTDES" class="java.lang.String"/>
 	<title>
 		<band height="13">
+			<printWhenExpression><![CDATA[$P{flag}]]></printWhenExpression>
 			<staticText>
 				<reportElement uuid="451f0248-0347-4f9d-94e3-9c7910c3994d" x="0" y="0" width="100" height="13"/>
 				<textElement>

@@ -6,6 +6,7 @@
 	<parameter name="ejercicio" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="flag" class="java.lang.Boolean"/>
 	<queryString>
 		<![CDATA[select trim(procve)procve,trim(pronom) pronom,trim(prodir) prodir,trim(proruc) proruc from speed400tc.tprov inner join speed400tc.tregc on procve = rccpro where rcejer = $P{ejercicio}  group by procve,pronom,prodir,proruc order by pronom]]>
 	</queryString>
@@ -13,13 +14,13 @@
 	<field name="PRONOM" class="java.lang.String"/>
 	<field name="PRODIR" class="java.lang.String"/>
 	<field name="PRORUC" class="java.lang.String"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
 	<title>
 		<band height="13">
+			<printWhenExpression><![CDATA[$P{flag}]]></printWhenExpression>
 			<staticText>
-				<reportElement uuid="07b88192-c862-40ee-b883-b2a0f4a0990a" x="0" y="1" width="62" height="12"/>
+				<reportElement uuid="07b88192-c862-40ee-b883-b2a0f4a0990a" x="0" y="1" width="62" height="12">
+					<printWhenExpression><![CDATA[]]></printWhenExpression>
+				</reportElement>
 				<textElement>
 					<font size="8"/>
 				</textElement>

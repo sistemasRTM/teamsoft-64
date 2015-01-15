@@ -6,6 +6,7 @@
 	<parameter name="ejercicio" class="java.lang.Integer">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="flag" class="java.lang.Boolean"/>
 	<queryString>
 		<![CDATA[select trim(cltide) cltide,trim(clnide) clnide ,trim(rvclie) rvclie,trim(clidir) clidir from speed400tc.tregv inner join speed400tc.tclie on rvccli = clicve  where rvejer = $P{ejercicio} group by cltide,clnide,rvclie,clidir order by rvclie]]>
 	</queryString>
@@ -13,11 +14,9 @@
 	<field name="CLNIDE" class="java.lang.String"/>
 	<field name="RVCLIE" class="java.lang.String"/>
 	<field name="CLIDIR" class="java.lang.String"/>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
 	<title>
 		<band height="13">
+			<printWhenExpression><![CDATA[$P{flag}]]></printWhenExpression>
 			<staticText>
 				<reportElement uuid="66de28cb-dcbe-4eba-8155-a584f9e52871" x="0" y="1" width="45" height="12"/>
 				<textElement>
