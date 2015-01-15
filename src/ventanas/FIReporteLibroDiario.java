@@ -33,7 +33,7 @@ public class FIReporteLibroDiario extends MaestroInternalFrame{
 	}
 	
 	public FIReporteLibroDiario() {
-		initialize();
+		//initialize();
 	}
 	
 	public void initialize() {
