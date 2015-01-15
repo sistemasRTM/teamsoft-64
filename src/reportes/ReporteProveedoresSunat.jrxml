@@ -18,15 +18,6 @@
 		<band height="13">
 			<printWhenExpression><![CDATA[$P{flag}]]></printWhenExpression>
 			<staticText>
-				<reportElement uuid="07b88192-c862-40ee-b883-b2a0f4a0990a" x="0" y="1" width="62" height="12">
-					<printWhenExpression><![CDATA[]]></printWhenExpression>
-				</reportElement>
-				<textElement>
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[PROCVE]]></text>
-			</staticText>
-			<staticText>
 				<reportElement uuid="267105a2-33ff-4a09-99e4-2e5c587ae5df" x="62" y="1" width="219" height="12"/>
 				<textElement>
 					<font size="8"/>
@@ -46,6 +37,13 @@
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[PRORUC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f88188dd-8ccb-4cc2-bb27-d05e57a35bae" x="0" y="1" width="62" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[PROCVE]]></text>
 			</staticText>
 		</band>
 	</title>
