@@ -121,7 +121,8 @@ public class Sesion {
 	public static String tifReporteClienteSunat = "Reporte de Clientes Sunat";
 	public static String tifReporteProveedorSunat = "Reporte de Proveedores Sunat";
 	public static String tifReporteArticulosSunat = "Reporte de Articulos Sunat";
-	
+	public static String tifDetallePedido = "Detalle de Pedido";
+	public static String tifConsultaNotaCredito = "Consulta de Nota de credito";
 	public static String tifRegistroPresentacionComercial = "Mantenimiento de Registro de Presentación Comercial";
 	public static String tifRegistroOperacion = "Mantenimiento de Registro de Operaciones";
 	public static String tifEstablecimientoComercial = "Mantenimiento de Establecimiento Comeracial";

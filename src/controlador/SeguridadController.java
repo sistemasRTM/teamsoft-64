@@ -441,6 +441,11 @@ public class SeguridadController implements ActionListener {
 					case 34:
 						gui.getSubOpcImprimirPedidos().setVisible(true);
 						break;
+					case 44:
+						gui.getSubOpcNotaCredito().setVisible(true);
+						break;
+						
+						
 					}
 				}
 				

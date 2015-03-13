@@ -10,10 +10,12 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
 import javax.print.DocFlavor;
 import javax.print.PrintService;
 import javax.print.PrintServiceLookup;
@@ -27,6 +29,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRExporterParameter;
 import net.sf.jasperreports.engine.JRParameter;
@@ -37,7 +40,11 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporter;
 import net.sf.jasperreports.engine.export.JRPrintServiceExporterParameter;
 import net.sf.jasperreports.engine.util.JRLoader;
+
 import org.jdesktop.swingx.JXTable;
+
+import persistencia.DetallePedidoDAO;
+import persistencia.NotaCreditoDAO;
 import bean.CertificadoPercepcion;
 import bean.TARTIAP;
 import bean.TCP;
@@ -49,16 +56,21 @@ import bean.THCEPE;
 import bean.TPARAM;
 import bean.TPEDH;
 import delegate.GestionComision;
+import delegate.GestionFacturacion;
 import delegate.GestionSeguridad;
 import delegate.GestionVentas;
+import recursos.GenerateExcel;
 import recursos.Numero_a_Letra;
 import recursos.Sesion;
 import servicio.ComisionService;
+import servicio.NotaCreditoService;
 import servicio.ParametrosService;
 import servicio.TPEDHService;
 import ventanas.FICertificadoPercepcion;
+import ventanas.FIDetallePedidos;
 import ventanas.FIGenerarCertificado;
 import ventanas.FIImprimirPedidos;
+import ventanas.FINotaCredito;
 import ventanas.FIVerificarPercepcion;
 import ventanas.FMenuPrincipalFacturacion;
 
@@ -69,10 +81,15 @@ public class FacturacionController implements ActionListener {
 	FIVerificarPercepcion mVerificarPercepcion = new FIVerificarPercepcion();
 	FICertificadoPercepcion mCertificadoPercepcion = new FICertificadoPercepcion();
 	FIImprimirPedidos mImprimirPedidos = new FIImprimirPedidos();
+	FINotaCredito mNotaCredito = new FINotaCredito();
+	FIDetallePedidos mDetallePedidos = new FIDetallePedidos();
+	
 	ComisionService servicio = GestionComision.getComisionService();
 	ParametrosService servicioParametros = GestionSeguridad
 			.getParametrosService();
 	TPEDHService servicioVentas = GestionVentas.getTPEDHService();
+	NotaCreditoService servicioNotaCredito = GestionFacturacion.getNotaCreditoService();
+	
 	List<TDFCEPE> listado = new ArrayList<TDFCEPE>();
 	List<TDHCPE> listadoImpresion = new ArrayList<TDHCPE>();
 	List<TDHCPE> listadoDocumento = new ArrayList<TDHCPE>();
@@ -101,6 +118,14 @@ public class FacturacionController implements ActionListener {
 	
 	public FacturacionController(FIImprimirPedidos mImprimirPedidos) {
 		this.mImprimirPedidos = mImprimirPedidos;
+	}
+
+	public FacturacionController(FINotaCredito mNotaCredito) {
+		this.mNotaCredito=mNotaCredito;
+	}
+	
+	public FacturacionController(FIDetallePedidos mDetallePedidos) {
+		this.mDetallePedidos=mDetallePedidos;
 	}
 
 	@Override
@@ -189,8 +214,90 @@ public class FacturacionController implements ActionListener {
 			FIImprimirPedidos.close();
 			mImprimirPedidos.salir();
 		}
+		
+		else if (mNotaCredito.getBtnSalir() == e.getSource()) {
+			FINotaCredito.close();
+			mNotaCredito.salir();
+		}
+		
+		else if (mNotaCredito.getBtnProcesar() == e.getSource()) {
+			
+			String ejer = mNotaCredito.getTxtEjercicio().getText();
+			String peri =  mNotaCredito.getTxtPeriodo().getText();
+			
+			
+			
+			if (ejer.equals("") || peri.equals("")){
+				Sesion.mensajeError(mNotaCredito,"No se permite campos en blanco");
+			}
+			else {
+				
+				int ejercicio = Integer.parseInt(ejer);
+				int periodo = Integer.parseInt(peri);
+				
+				if  (ejercicio<2005) {
+					Sesion.mensajeError(mNotaCredito,"Ingrese el Ejercio mayor o igual al 2005");
+					
+				}
+				else if (periodo <1 || periodo > 12) {
+					Sesion.mensajeError(mNotaCredito,"Ingrese el periodo correctamente");
+				}
+				else {
+					//Sesion.mensajeError(mNotaCredito,"Estoy aqu+i listo para procesar.....");
+					
+					NotaCreditoDAO obj = new NotaCreditoDAO();	
+					GenerateExcel ge = new GenerateExcel(obj.listarnc(ejer, peri));
+				}
+				
+				
+			}
+			
+			
+			}
+			else if (mDetallePedidos.getBtnSalir() == e.getSource()) {
+			FIDetallePedidos.close();
+			mDetallePedidos.salir();
+			}
+			else if (mDetallePedidos.getDtpFechaDesde()== e.getSource()){
+				
+				//Date fechaDesde = (mDetallePedidos.getDtpFechaDesde().getDate());
+				//SimpleDateFormat formateaFecha = new SimpleDateFormat("dd/MM/yyyy");
+				//String fechaDesdeFormateada = formateaFecha.format(fechaDesde);
+			}
+		
+			
+			else if (mDetallePedidos.getBtnProcesar() == e.getSource()) {
+				
+				Date fechaDesde = (mDetallePedidos.getDtpFechaDesde().getDate());
+				SimpleDateFormat formateaFecha = new SimpleDateFormat("dd/MM/yyyy");
+				String fechaDesdeF = formateaFecha.format(fechaDesde);
+				
+				Date fechaHasta = (mDetallePedidos.getDtpFechaHasta().getDate());
+				SimpleDateFormat formateaFechaHasta = new SimpleDateFormat("dd/MM/yyyy");
+				String fechaHastaF = formateaFechaHasta.format(fechaHasta);
+				
+				if (fechaDesde.after(fechaHasta)){
+					Sesion.mensajeError(mDetallePedidos,"error en fecha, revisar");
+				}else{
+					
+				int FechaDesde = Integer.parseInt((fechaDesdeF.substring(6, 10)+fechaDesdeF.substring(3,5)+fechaDesdeF.substring(0,2)));
+				int FechaHasta = Integer.parseInt((fechaHastaF.substring(6, 10)+fechaHastaF.substring(3,5)+fechaHastaF.substring(0,2)));
+					
+					DetallePedidoDAO obj = new DetallePedidoDAO();	
+					GenerateExcel ge = new GenerateExcel(obj.listarDetallePedido( FechaDesde, FechaHasta));
+					
+					 
+				}
+		
+				
+				
+			}
+			
+			
+		
 	}
 
+	
 	private void imprimirPedidos(String phpvta,String phnume) {
 		try {
 				List<TPEDH> pedidos = servicioVentas.listarDetallePedido(Integer.parseInt(phpvta), Integer.parseInt(phnume));

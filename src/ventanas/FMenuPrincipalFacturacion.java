@@ -33,6 +33,9 @@ public class FMenuPrincipalFacturacion extends MaestroFrame {
 	private JMenuItem mntmGenerarCertificado;
 	private JMenuItem mntmVerificarPercepcion;
 	private JMenuItem mntmImprimirPedidos;
+	private JMenu mnConsultas;
+	private JMenuItem mntmNotaDeCreditos;
+	private JMenuItem mntmDetalleDePedidos;
 
 	public static FMenuPrincipalFacturacion createInstance() {
 		if (gui == null) {
@@ -131,6 +134,7 @@ public class FMenuPrincipalFacturacion extends MaestroFrame {
 				FIGenerarCertificado.close();
 				FIImprimirPedidos.close();
 				FIVerificarPercepcion.close();
+				FINotaCredito.close();
 				gui = null;
 				dispose();
 			}
@@ -246,6 +250,48 @@ public class FMenuPrincipalFacturacion extends MaestroFrame {
 			}
 		});
 		mnFacturacin.add(mntmImprimirPedidos);
+		
+		mnConsultas = new JMenu("Consultas");
+		mnMenuBar.add(mnConsultas);
+		
+		mntmNotaDeCreditos = new JMenuItem("Nota de Creditos");
+		mntmNotaDeCreditos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(FINotaCredito.getInstance() == null){
+					FINotaCredito mNotaCredito = FINotaCredito.createInstance();
+					mNotaCredito.initialize();
+					mNotaCredito.setVisible(true);
+					mNotaCredito.getBtnSalir().setVisible(true);
+					FacturacionController controlador = new FacturacionController(mNotaCredito);
+					mNotaCredito.setControlador(controlador);
+					dpEscritorio.add(mNotaCredito,Sesion.show);
+				}else{
+					FINotaCredito.getInstance().toFront();
+				}
+			}
+		});
+		
+		mntmDetalleDePedidos = new JMenuItem("Detalle de Pedidos");
+		mntmDetalleDePedidos.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				if(FIDetallePedidos.getInstance() == null){
+					FIDetallePedidos mDetallePedidos = FIDetallePedidos.createInstance();
+					mDetallePedidos.initialize();
+					mDetallePedidos.setVisible(true);
+					mDetallePedidos.getBtnSalir().setVisible(true);
+					FacturacionController controlador = new FacturacionController(mDetallePedidos);
+					mDetallePedidos.setControlador(controlador);
+					dpEscritorio.add(mDetallePedidos,Sesion.show);
+				}else{
+					FIDetallePedidos.getInstance().toFront();
+				}
+				
+			}
+		});
+		
+		mnConsultas.add(mntmDetalleDePedidos);
+		mnConsultas.add(mntmNotaDeCreditos);
 		mnMenuBar.add(btnSalir);
 	}
 
@@ -256,6 +302,12 @@ public class FMenuPrincipalFacturacion extends MaestroFrame {
 	public JMenu getOpcFacturacion() {
 		return mnFacturacin;
 	}
+	
+	public JMenu getOpcConsulta() {
+		return mnConsultas;
+	}
+	
+	
 
 	public JMenuItem getSubOpcCliente() {
 		return mntmCliente;
@@ -275,5 +327,13 @@ public class FMenuPrincipalFacturacion extends MaestroFrame {
 	
 	public JMenuItem getSubOpcImprimirPedidos() {
 		return mntmImprimirPedidos;
+	}
+	
+	public JMenuItem getSubOpcNotaCredito() {
+		return mntmNotaDeCreditos;
+	}
+	
+	public JMenuItem getSubOpcDetallePedidos() {
+		return mntmDetalleDePedidos;
 	}
 }
