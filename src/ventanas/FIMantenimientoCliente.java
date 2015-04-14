@@ -572,6 +572,7 @@ public class FIMantenimientoCliente extends MaestroInternalFrame {
 		btnNuevo.addActionListener(controlador);
 		btnCancelar.addActionListener(controlador);
 		btnPassword.addActionListener(controlador);
+		btnGuardar.addActionListener(controlador);
 	}
 
 	public JButton getBuscar() {
